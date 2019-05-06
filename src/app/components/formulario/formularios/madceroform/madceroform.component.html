@@ -1,0 +1,268 @@
+<div class="main-container row">
+    <div class="col-md-8">
+        <form [formGroup]="formularioCero">
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="claveComponente">Clave Componente</label>
+                    <input type="text" class="form-control" name="claveComponente" placeholder="Clave Componente" formControlName="claveComponente">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="nombreComponente">Nombre Componente</label>
+                    <input type="text" class="form-control" name="nombreComponente" placeholder="Nombre Componente" formControlName="nombreComponente">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <p>Tipo de componente</p>
+
+                    <div class="form-group">
+                        <select class="custom-select" formControlName="tipo">
+                                  <option selected disabled>Seleccione una opción</option>
+                                  <option value="ig">Interfáz Gráfica</option>
+                                  <option value="os">Orientado al servicio</option>
+                              </select>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <p>Clasificación de ACM (Versión 2012)</p>
+
+                    <div class="form-group">
+                        <select class="custom-select" formControlName="clasACM">
+                                  <option selected disabled>Seleccione una opción</option>
+                                  <option value="gr">General and reference</option>
+                                  <option value="hw">Hardware</option>
+                                  <option value="cso">Computer systems organization</option>
+                                  <option value="net">Networks</option>
+                                  <option value="sfwe">Software and its engineering</option>
+                                  <option value="tc">Theory of computation</option>
+                                  <option value="mc">Mathematics of computing</option>
+                                  <option value="is">Information systems</option>
+                                  <option value="sp">Security and privacity</option>
+                                  <option value="hcc">Human-centered computing</option>
+                                  <option value="cm">Computing methodologies</option>
+                                  <option value="ac">Applied computing</option>
+                                  <option value="spt">Social and professional topics</option>
+                              </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <p>Datos del autor</p>
+
+            <div class="row" formArrayName="autores" *ngFor="let autor of formularioCero.controls['autores'].controls; let i = index">
+
+                <div [formGroupName]="i" class="col-md-12">
+                    <hr>
+                    <div class="row">
+
+                        <div class="form-group col-md-4">
+                            <label for="nombreAutor">Nombre</label>
+                            <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="nombreAutor">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="correo">Correo</label>
+                            <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="correoAutor">
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'col-md-4': i===0, 'col-md-3': i!==0}">
+                            <label for="aliasGit">Alias en GitLab</label>
+                            <input type="text" class="form-control" name="aliasGit" placeholder="Nombre Componente" formControlName="aliasGitlab">
+                        </div>
+                        <div class="form-group col-md-1" *ngIf="i!==0">
+                            <label>&nbsp;</label>
+                            <input (click)="eliminarAutor(i)" type="button" class="form-control btn btn-danger" value="-">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class=" col-md-12">
+
+                <div class="row">
+
+                    <div class="form-group col-md-12 float-right ">
+                        <label for="">&nbsp;</label>
+                        <button type="button" (click)="agregarAutor()" class="btn btn-success form-control">Agregar</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="descProblema">Descripcion del problema</label>
+                <textarea class="form-control" id="descProblema" rows="4" formControlName="descProblema"></textarea>
+            </div>
+
+            <p>Requerimientos del sistema</p>
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                        <p>Req. Funcionales</p>
+
+                        <div class="row" formArrayName="reqFuncionales" *ngFor="let r of formularioCero.controls['reqFuncionales'].controls; let i = index" >
+            
+                                <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
+                                    <!-- <label for="param">Requerimiento funcional</label> -->
+                                    <input type="text" class="form-control" name="i" placeholder="Requerimiento funcional" [formControlName]="i">
+                                </div>
+                                <div class="form-group col-md-2" *ngIf="i!==0">
+                                    <!-- <label>&nbsp;</label> -->
+                                    <input (click)="eliminarRF(i)" type="button" class="form-control btn btn-danger" value="-">
+                                </div>
+            
+                        </div>
+            
+                        <div class=" col-md-12">
+            
+                            <div class="row">
+            
+                                <div class="form-group col-md-12 float-right ">
+                                    <label for="">&nbsp;</label>
+                                    <button type="button" (click)="agregarRF()" class="btn btn-success form-control">Agregar</button>
+                                </div>
+            
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                        <p>Req. No Funcionales</p>
+
+                        <div class="row" formArrayName="reqNoFuncionales" *ngFor="let r of formularioCero.controls['reqNoFuncionales'].controls; let i = index" >
+            
+                                <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
+                                    <!-- <label for="param">Requerimiento funcional</label> -->
+                                    <input type="text" class="form-control" name="i" placeholder="Requerimiento no funcional" [formControlName]="i">
+                                </div>
+                                <div class="form-group col-md-2" *ngIf="i!==0">
+                                    <!-- <label>&nbsp;</label> -->
+                                    <input (click)="eliminarNRF(i)" type="button" class="form-control btn btn-danger" value="-">
+                                </div>
+            
+                        </div>
+            
+                        <div class=" col-md-12">
+            
+                            <div class="row">
+            
+                                <div class="form-group col-md-12 float-right ">
+                                    <label for="">&nbsp;</label>
+                                    <button type="button" (click)="agregarNRF()" class="btn btn-success form-control">Agregar</button>
+                                </div>
+            
+                            </div>
+                        </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="aportacion">Que aporta el componente</label>
+                <textarea class="form-control" id="aportacion" rows="4" formControlName="aportacion"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="similitud">Cual es la similitud con otros componentess</label>
+                <textarea class="form-control" id="similitud" rows="4" formControlName="similitud"></textarea>
+            </div>
+
+            <p>Sintaxis</p>
+
+            <div class="row" formArrayName="sintaxis" *ngFor="let autor of formularioCero.controls['sintaxis'].controls; let i = index">
+
+                <div [formGroupName]="i" class="col-md-12">
+                    <hr>
+                    <div class="row">
+
+                        <div class="form-group" [ngClass]="{'col-md-6': i===0, 'col-md-5': i!==0}">
+                            <label for="param">Parametro</label>
+                            <input type="text" class="form-control" name="param" placeholder="Nombre Autor" formControlName="param">
+                        </div>
+
+                        <div class="form-group" [ngClass]="{'col-md-6': i===0, 'col-md-5': i!==0}">
+                            <label for="tipoparam">Tipo de dato</label>
+                            <input type="text" class="form-control" name="tipoparam" placeholder="Nombre Componente" formControlName="tipoparam">
+                        </div>
+                        <div class="form-group col-md-2" *ngIf="i!==0">
+                            <label>&nbsp;</label>
+                            <input (click)="eliminarParametro(i)" type="button" class="form-control btn btn-danger" value="-">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class=" col-md-12">
+
+                <div class="row">
+
+                    <div class="form-group col-md-12 float-right ">
+                        <label for="">&nbsp;</label>
+                        <button type="button" (click)="agregarParametro()" class="btn btn-success form-control">Agregar</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <div *ngIf="!formularioCero.valid" class="alert alert-danger" role="alert">
+                        El formulario es incorrecto
+                    </div>
+                    <div *ngIf="formularioCero.valid" class="alert alert-success" role="alert">
+                        El formulario es válido
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !formularioCero.valid, 'btn-outline-success': formularioCero.valid, 'disabled': !formularioCero.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                    <!-- [disabled]="!formularioCero.valid"  -->
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="col-md-4 ">
+        <pre class="sticky-top ">
+
+            {{formularioCero.value|json}}
+                      
+        </pre>
+    </div>
+
+    <!-- -------------- Madurez nivel 0  --------------
+    clave del componente
+    nombre del componente
+    tipo UI/OS
+    DATOS AUTOR
+    |- nombre
+    |- correo 
+    |- alias-gitlab
+    clasificacion derivada de las ramas de ACM (versión 2012)
+    descripcion del problema
+    requerimientos funcionales
+    requerimientos no funcionales
+    que esta aportando el componente
+    descripcion de los compontenes mas parecidos
+    sintaxis
+    fecha que inicia el componente -->
+</div>
