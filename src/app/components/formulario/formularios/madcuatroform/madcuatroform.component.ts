@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-madcuatroform',
   templateUrl: './madcuatroform.component.html',
   styleUrls: ['./madcuatroform.component.css']
 })
-export class MadcuatroformComponent implements OnInit {
+export class MadcuatroformComponent {
 
-  constructor() { }
+  formularioCuatro: FormGroup;
 
-  ngOnInit() {
-  }
+  constructor(private fb: FormBuilder) {
+
+    this.formularioCuatro = this.fb.group({
+      
+    })
+
+   }
 
 }

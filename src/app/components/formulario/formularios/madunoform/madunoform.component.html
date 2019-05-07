@@ -1,3 +1,71 @@
-<p>
-  madunoform works!
-</p>
+<div class="main-container row">
+  <div class="col-md-8">
+      <form [formGroup]="formularioUno">
+
+          <div class="form-group">
+              <label for="aportacion">Descripción de la solución</label>
+              <textarea class="form-control" id="descSolucion" rows="5" formControlName="descSolucion"></textarea>
+          </div>
+
+          <p>Ejemplos</p>
+
+          <div class="row" formArrayName="ejemplos" *ngFor="let r of formularioUno.controls['ejemplos'].controls; let i = index" >
+                  <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
+                    <label for="aportacion">Descripción de la solución</label>
+                    <textarea class="form-control" id="ejemplos" rows="5" [formControlName]="i"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-2" *ngIf="i!==0">
+                      <label>&nbsp;</label>
+                      <input (click)="eliminarEjemplo(i)" type="button" class="form-control btn btn-danger" value="-">
+                  </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregarEjemplo()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+
+          <div class="row">
+              <div class="col-md-8">
+                  <div *ngIf="!formularioUno.valid" class="alert alert-danger" role="alert">
+                      El formulario es incorrecto
+                  </div>
+                  <div *ngIf="formularioUno.valid" class="alert alert-success" role="alert">
+                      El formulario es válido
+                  </div>
+              </div>
+              <!-- <div class="col-md-4">
+                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !formularioUno.valid, 'btn-outline-success': formularioUno.valid, 'disabled': !formularioUno.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                  [disabled]="!formularioUno.valid" 
+              </div> -->
+          </div>
+
+
+      </form>
+  </div>
+
+  <div class="col-md-4 ">
+      <pre class="sticky-top ">
+
+          {{formularioUno.value|json}}
+                    
+      </pre>
+  </div>
+
+  <!-- -------------- Madurez nivel 1  --------------
+    Descripcion de la solucion
+    algoritmo
+    ejemplos
+    ejecucion pendiente()
+   -->
+</div>

@@ -1,3 +1,172 @@
-<p>
-  maddosform works!
-</p>
+<div class="main-container row">
+  <div class="col-md-8">
+      <form [formGroup]="formularioDos">
+
+          <p>Corrida de juguete</p>
+
+          <div class="row" formArrayName="ejemJuguete" *ngFor="let ejemplo of formularioDos.controls['ejemJuguete'].controls; let i = index">
+
+              <div [formGroupName]="i" class="col-md-12">
+                  <hr>
+                  <div class="row">
+
+                      <div class="form-group col-md-8">
+                          <label for="nombreAutor">Entrada</label>
+                          <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="entrada">
+                      </div>
+
+                      <div class="form-group col-md-4">
+                          <label for="salida">Salida</label>
+                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="salida">
+                      </div>
+
+                      <div class="form-group" class="col-md-12">
+                          <label for="aportacion">Descripción de la corrida</label>
+                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="descripcion"></textarea>
+                      </div>
+
+                      <div class="form-group col-md-12" *ngIf="i!==0">
+                          <label>&nbsp;</label>
+                          <input (click)="eliminarEjmJuguete(i)" type="button" class="form-control btn btn-danger" value="-">
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregarEjmJuguete()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <p>Corrida de Promedio</p>
+
+          <div class="row" formArrayName="ejemPromedio" *ngFor="let ejemplo of formularioDos.controls['ejemPromedio'].controls; let i = index">
+
+              <div [formGroupName]="i" class="col-md-12">
+                  <hr>
+                  <div class="row">
+
+                      <div class="form-group col-md-8">
+                          <label for="nombreAutor">Entrada</label>
+                          <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="entrada">
+                      </div>
+
+                      <div class="form-group col-md-4">
+                          <label for="salida">Salida</label>
+                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="salida">
+                      </div>
+
+                      <div class="form-group" class="col-md-12">
+                          <label for="aportacion">Descripción de la corrida</label>
+                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="descripcion"></textarea>
+                      </div>
+
+                      <div class="form-group col-md-12" *ngIf="i!==0">
+                          <label>&nbsp;</label>
+                          <input (click)="eliminarEjmPromedio(i)" type="button" class="form-control btn btn-danger" value="-">
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregarEjmPromedio()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <p>Corrida de Complejo</p>
+
+          <div class="row" formArrayName="ejemComplejo" *ngFor="let ejemplo of formularioDos.controls['ejemComplejo'].controls; let i = index">
+
+              <div [formGroupName]="i" class="col-md-12">
+                  <hr>
+                  <div class="row">
+
+                      <div class="form-group col-md-8">
+                          <label for="nombreAutor">Entrada</label>
+                          <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="entrada">
+                      </div>
+
+                      <div class="form-group col-md-4">
+                          <label for="salida">Salida</label>
+                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="salida">
+                      </div>
+
+                      <div class="form-group" class="col-md-12">
+                          <label for="aportacion">Descripción de la corrida</label>
+                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="descripcion"></textarea>
+                      </div>
+
+                      <div class="form-group col-md-12" *ngIf="i!==0">
+                          <label>&nbsp;</label>
+                          <input (click)="eliminarEjmComplejo(i)" type="button" class="form-control btn btn-danger" value="-">
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregarEjmComplejo()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-8">
+                  <div *ngIf="!formularioDos.valid" class="alert alert-danger" role="alert">
+                      El formulario es incorrecto
+                  </div>
+                  <div *ngIf="formularioDos.valid" class="alert alert-success" role="alert">
+                      El formulario es válido
+                  </div>
+              </div>
+              <!-- <div class="col-md-4">
+                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !formularioDos.valid, 'btn-outline-success': formularioDos.valid, 'disabled': !formularioDos.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                  [disabled]="!formularioDos.valid" 
+              </div> -->
+          </div>
+
+
+      </form>
+  </div>
+
+  <div class="col-md-4 ">
+      <pre class="sticky-top ">
+
+          {{formularioDos.value|json}}
+                    
+      </pre>
+  </div>
+
+  <!-- -------------- Madurez nivel 1  --------------
+    Descripcion corrida
+    entrada
+    salida
+   -->
+</div>

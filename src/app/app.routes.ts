@@ -14,6 +14,7 @@ const APP_ROUTES: Routes = [
   { path: 'nivelUno', component: MadunoformComponent },
   { path: 'nivelDos', component: MaddosformComponent },
   { path: 'nivelTres', component: MadtresformComponent },
+  { path: 'nivelCuatro', component: MadcuatroformComponent },
   { path: 'nivelCinco', component: MadcincoformComponent },
   { path: 'nivelSeis', component: MadseisformComponent },
   { path: 'nivelSiete', component: MadsieteformComponent },
