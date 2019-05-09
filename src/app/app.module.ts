@@ -17,6 +17,11 @@ import { MadochoformComponent } from './components/formulario/formularios/madoch
 import { NavComponent } from './components/shared/nav/nav.component';
 // Rutas
 import { APP_ROUTING } from './app.routes';
+// Servicios
+import { DataJsonService } from './services/data-json.service';
+import { GenJsonComponent } from './components/gen-json/gen-json.component';
+import { LoadJsonComponent } from './components/load-json/load-json.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,16 +36,21 @@ import { APP_ROUTING } from './app.routes';
     MadseisformComponent,
     MadsieteformComponent,
     MadochoformComponent,
-    NavComponent
+    NavComponent,
+    GenJsonComponent,
+    LoadJsonComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    DataJsonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

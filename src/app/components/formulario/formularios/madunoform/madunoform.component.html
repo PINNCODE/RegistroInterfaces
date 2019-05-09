@@ -1,6 +1,6 @@
 <div class="main-container row">
   <div class="col-md-8">
-      <form [formGroup]="formularioUno">
+      <form [formGroup]="_DataJson.formUno">
 
           <div class="form-group">
               <label for="aportacion">Descripción de la solución</label>
@@ -8,8 +8,9 @@
           </div>
 
           <p>Ejemplos</p>
+          <hr>
 
-          <div class="row" formArrayName="ejemplos" *ngFor="let r of formularioUno.controls['ejemplos'].controls; let i = index" >
+          <div class="row" formArrayName="ejemplos" *ngFor="let r of _DataJson.formUno.controls['ejemplos'].controls; let i = index" >
                   <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
                     <label for="aportacion">Descripción de la solución</label>
                     <textarea class="form-control" id="ejemplos" rows="5" [formControlName]="i"></textarea>
@@ -26,7 +27,7 @@
 
               <div class="row">
 
-                  <div class="form-group col-md-12 float-right ">
+                  <div class="form-group col-md-3 offset-md-9">
                       <label for="">&nbsp;</label>
                       <button type="button" (click)="agregarEjemplo()" class="btn btn-success form-control">Agregar</button>
                   </div>
@@ -37,17 +38,18 @@
 
           <div class="row">
               <div class="col-md-8">
-                  <div *ngIf="!formularioUno.valid" class="alert alert-danger" role="alert">
+                  <div *ngIf="!_DataJson.formUno.valid" class="alert alert-danger" role="alert">
                       El formulario es incorrecto
                   </div>
-                  <div *ngIf="formularioUno.valid" class="alert alert-success" role="alert">
+                  <div *ngIf="_DataJson.formUno.valid" class="alert alert-success" role="alert">
                       El formulario es válido
                   </div>
               </div>
               <!-- <div class="col-md-4">
-                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !formularioUno.valid, 'btn-outline-success': formularioUno.valid, 'disabled': !formularioUno.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
-                  [disabled]="!formularioUno.valid" 
+                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !_DataJson.formUno.valid, 'btn-outline-success': _DataJson.formUno.valid, 'disabled': !_DataJson.formUno.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                  [disabled]="!_DataJson.formUno.valid" 
               </div> -->
+              <a (click)="_DataJson.generarJSON()" class="btn" title="Download JSON" [href]="_DataJson.downloadJsonHref" download="download.json">Generar JSON SRC</a>
           </div>
 
 
@@ -57,7 +59,7 @@
   <div class="col-md-4 ">
       <pre class="sticky-top ">
 
-          {{formularioUno.value|json}}
+          {{_DataJson.formUno.value|json}}
                     
       </pre>
   </div>

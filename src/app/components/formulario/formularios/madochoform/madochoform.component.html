@@ -1,3 +1,90 @@
-<p>
-  madochoform works!
-</p>
+<div class="main-container row">
+  <div class="col-md-8">
+      <form [formGroup]="_DataJson.formOcho">
+
+          <p>Registro de Lista de artículos, tesis, aplicaciones en las que se ha utilizado.</p>
+
+          <div class="row" formArrayName="exposicion" *ngFor="let ejemplo of _DataJson.formOcho.controls['exposicion'].controls; let i = index">
+
+              <div [formGroupName]="i" class="col-md-12">
+                  <hr>
+                  <div class="row">
+
+                      <div class="form-group col-md-12">
+                          <label for="salida">Referencia</label>
+                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="referencia">
+                      </div>
+
+                      <div class="form-group" class="col-md-12">
+                          <label for="aportacion">¿Cómo se utilizo?</label>
+                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label for="salida">URL</label>
+                        <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="url">
+                      </div>
+
+                      <div class="form-group col-md-12" *ngIf="i!==0">
+                          <label>&nbsp;</label>
+                          <input (click)="eliminarExposicion(i)" type="button" class="form-control btn btn-danger" value="-">
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregarExposicion()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+
+
+
+          <div class="row">
+              <div class="col-md-8">
+                  <div *ngIf="!_DataJson.formOcho.valid" class="alert alert-danger" role="alert">
+                      El formulario es incorrecto
+                  </div>
+                  <div *ngIf="_DataJson.formOcho.valid" class="alert alert-success" role="alert">
+                      El formulario es valido
+                  </div>
+              </div>
+              <!-- <div class="col-md-4">
+                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !_DataJson.formOcho.valid, 'btn-outline-success': _DataJson.formOcho.valid, 'disabled': !_DataJson.formOcho.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                  [disabled]="!_DataJson.formOcho.valid" 
+              </div> -->
+          </div>
+
+
+      </form>
+  </div>
+
+  <div class="col-md-4 ">
+      <pre class="sticky-top ">
+
+          {{_DataJson.formOcho.value|json}}
+                    
+      </pre>
+  </div>
+
+<!-- nivel 6
+componentes Externoss
+y componentes hijos 
+
+nombre del componente
+funcion que empeña
+referencia
+url 
+version
+
+-->

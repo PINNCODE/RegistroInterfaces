@@ -8,6 +8,8 @@ import { MadcuatroformComponent } from './components/formulario/formularios/madc
 import { MadcincoformComponent } from './components/formulario/formularios/madcincoform/madcincoform.component';
 import { MadseisformComponent } from './components/formulario/formularios/madseisform/madseisform.component';
 import { MadsieteformComponent } from './components/formulario/formularios/madsieteform/madsieteform.component';
+import { MadochoformComponent } from './components/formulario/formularios/madochoform/madochoform.component';
+import { GenJsonComponent } from './components/gen-json/gen-json.component';
 
 const APP_ROUTES: Routes = [
   { path: 'nivelCero', component: MadceroformComponent },
@@ -18,7 +20,8 @@ const APP_ROUTES: Routes = [
   { path: 'nivelCinco', component: MadcincoformComponent },
   { path: 'nivelSeis', component: MadseisformComponent },
   { path: 'nivelSiete', component: MadsieteformComponent },
-  { path: 'nivelOcho', component: MadcuatroformComponent },
+  { path: 'nivelOcho', component: MadochoformComponent },
+  { path: 'genJson', component: GenJsonComponent },
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

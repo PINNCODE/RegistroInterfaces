@@ -80,9 +80,13 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/datepicker.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/bootstrap-daepicker.js",
+              "src/assets/js/locales/bootstrap-daepicker.es.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

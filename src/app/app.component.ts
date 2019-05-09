@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataJsonService } from './services/data-json.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'labIAforms';
+  
+  constructor(private _DataJson: DataJsonService){
+    
+  }
+
 }

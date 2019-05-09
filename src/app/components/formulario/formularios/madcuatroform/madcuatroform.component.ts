@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { DataJsonService } from '../../../../services/data-json.service';
 
 @Component({
   selector: 'app-madcuatroform',
@@ -8,14 +9,73 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class MadcuatroformComponent {
 
-  formularioCuatro: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
 
-    this.formularioCuatro = this.fb.group({
-      
-    })
+    if (this._DataJson.formCuatro === undefined) {
+      this._DataJson.formCuatro = this.fb.group({
+        'compPadre': this.fb.array([]),
+        'compHijo': this.fb.array([]),
+      })
+  
+      this.agregarcompPadre();
+      this.agregarcompHijo();
+    }
+
+    this._DataJson.formCuatro.statusChanges.subscribe(
+      data => {
+       if(data === 'VALID'){
+        this._DataJson.dataForm.controls['dataCuatro'].setValue(this._DataJson.formCuatro.value);
+       }
+      }
+    )
 
    }
+
+   agregarcompPadre(){
+    (<FormArray>this._DataJson.formCuatro.controls['compPadre']).push(
+      this.fb.group({
+        nombre: new FormControl('', [
+          Validators.required
+        ]),
+        funcion: new FormControl('',[
+          Validators.required
+        ]),
+        referencia: new FormControl('',[
+          Validators.required
+        ]),
+        url: new FormControl('',[
+          Validators.required
+        ])
+      })
+    )
+   }
+
+   eliminarcompPadre(idx:number){
+    (<FormArray>this._DataJson.formCuatro.controls['compPadre']).removeAt(idx);
+  }
+
+  agregarcompHijo(){
+    (<FormArray>this._DataJson.formCuatro.controls['compHijo']).push(
+      this.fb.group({
+        nombre: new FormControl('', [
+          Validators.required
+        ]),
+        funcion: new FormControl('',[
+          Validators.required
+        ]),
+        referencia: new FormControl('',[
+          Validators.required
+        ]),
+        url: new FormControl('',[
+          Validators.required
+        ])
+      })
+    )
+   }
+
+   eliminarcompHijo(idx:number){
+    (<FormArray>this._DataJson.formCuatro.controls['compHijo']).removeAt(idx);
+  }
 
 }

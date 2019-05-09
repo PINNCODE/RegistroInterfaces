@@ -1,0 +1,19 @@
+<div class="main-container row">
+  <div class="col-md-8">
+    <p>Generar archivo JSON con los siguientes niveles de madurez completos</p>
+    <!-- <ul class="list-group">
+      <li class="list-group-item active">Niveles completos</li>
+      <li class="list-group-item" *ngFor="let item of arrOk">{{item}}</li>
+    </ul> -->
+    <br>
+    <br>
+    <a (click)="_DataJson.generarJSON()" class="btn btn-block btn-success" title="Download JSON" [href]="_DataJson.downloadJsonHref" download="download.json">Generar JSON</a>
+  </div>
+
+  <div class="col-md-4 ">
+      <pre class="sticky-top ">
+
+          {{_DataJson.dataForm.value|json}}
+                    
+      </pre>
+  </div>

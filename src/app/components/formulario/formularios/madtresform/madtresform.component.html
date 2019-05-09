@@ -1,3 +1,72 @@
-<p>
-  Posible confusion con nivel 3
-</p>
+<div class="main-container row">
+  <div class="col-md-8">
+      <form [formGroup]="_DataJson.formTres">
+
+          <p>Descripción del problema de casos complejos</p>
+
+          <div class="row" formArrayName="descCasoComplejo" *ngFor="let ejemplo of _DataJson.formTres.controls['descCasoComplejo'].controls; let i = index">
+
+              <div [formGroupName]="i" class="col-md-12">
+                  <hr>
+                  <div class="row">
+
+                      <div class="form-group" class="col-md-12">
+                          <label for="aportacion">Descripción</label>
+                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="descripcion"></textarea>
+                      </div>
+
+                      <div class="form-group col-md-12" *ngIf="i!==0">
+                          <label>&nbsp;</label>
+                          <input (click)="eliminardescCasoComplejo(i)" type="button" class="form-control btn btn-danger" value="-">
+                      </div>
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div class=" col-md-12">
+
+              <div class="row">
+
+                  <div class="form-group col-md-12 float-right ">
+                      <label for="">&nbsp;</label>
+                      <button type="button" (click)="agregardescCasoComplejo()" class="btn btn-success form-control">Agregar</button>
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-8">
+                  <div *ngIf="!_DataJson.formTres.valid" class="alert alert-danger" role="alert">
+                      El formulario es incorrecto
+                  </div>
+                  <div *ngIf="_DataJson.formTres.valid" class="alert alert-success" role="alert">
+                      El formulario es valido
+                  </div>
+              </div>
+              <!-- <div class="col-md-4">
+                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !_DataJson.formTres.valid, 'btn-outline-success': _DataJson.formTres.valid, 'disabled': !_DataJson.formTres.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
+                  [disabled]="!_DataJson.formTres.valid" 
+              </div> -->
+          </div>
+
+
+      </form>
+  </div>
+
+  <div class="col-md-4 ">
+      <pre class="sticky-top ">
+
+          {{_DataJson.formTres.value|json}}
+                    
+      </pre>
+  </div>
+
+  <!-- -------------- Madurez nivel 2  --------------
+    Descripcion corrida
+    entrada
+    salida
+   -->
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
+import { DataJsonService } from '../../../../services/data-json.service';
 
 @Component({
   selector: 'app-madunoform',
@@ -10,29 +11,41 @@ export class MadunoformComponent {
 
   formularioUno: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
 
-    this.formularioUno = this.fb.group({
-      'descSolucion': new FormControl('',[
-        Validators.required
-      ]),
-      'ejemplos': new FormArray([
+    if (this._DataJson.formUno === undefined) {
+      
+      this._DataJson.formUno = this.fb.group({
+        'descSolucion': new FormControl('',[
+          Validators.required
+        ]),
+        'ejemplos': new FormArray([
+  
+        ])
+      })
+  
+      this.agregarEjemplo();
+      
+    }
 
-      ])
-    })
-
-    this.agregarEjemplo();
+    this._DataJson.formUno.statusChanges.subscribe(
+      data => {
+       if(data === 'VALID'){
+        this._DataJson.dataForm.controls['dataUno'].setValue(this._DataJson.formUno.value);
+       }
+      }
+    )
 
    }
 
    agregarEjemplo(){
-    (<FormArray>this.formularioUno.controls['ejemplos']).push(
+    (<FormArray>this._DataJson.formUno.controls['ejemplos']).push(
       new FormControl('', Validators.required)
     )
   }
 
   eliminarEjemplo(idx:number){
-    (<FormArray>this.formularioUno.controls['ejemplos']).removeAt(idx);
+    (<FormArray>this._DataJson.formUno.controls['ejemplos']).removeAt(idx);
   }
 
 }

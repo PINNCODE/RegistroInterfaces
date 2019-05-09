@@ -1,0 +1,31 @@
+<div class="main-container container">
+
+    <h1 class="text-center">GenWik</h1>
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+          <form [formGroup]="formGroup" >
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile"  (change)="onFileChange($event)">
+              <label class="custom-file-label" for="customFile">{{archivo.name}}</label>
+            </div>
+            <br>
+            <br>
+            <div *ngIf="error" class="alert alert-danger" role="alert">
+              El formato del archivo no es soportado
+            </div>
+            <div *ngIf="error">
+              <button type="submit" class="btn btn-block btn-primary">Cargar archivo</button>
+            </div>
+            
+          </form>
+      </div>
+      <div class="col-4"></div>
+      <div class="col-md-12">
+        <pre>
+          {{ data | json }}
+        </pre>
+      </div>
+    </div>
+
+</div>

@@ -1,3 +1,25 @@
 <div class="main-container container">
-    <app-formulario></app-formulario>
+
+    <div *ngIf="!_DataJson.init && !_DataJson.load">
+        <h1 class="text-center">GenWik</h1>
+        <p class="text-center">Crea la interfaz de tu componente a partir de un archivo .json <br> generado  a partir de formularios para la evaluación de madurez de componentes IPO</p>
+
+        <div class="row justify-content-md-center">
+                <div class="col-md-12 text-center">
+                    <button (click)="_DataJson.init=!_DataJson.init" [routerLink]="['nivelCero']" type="button" class="btn btn-primary btn-lg">Generar archivo</button>
+                    &nbsp;
+                    <button (click)="_DataJson.load=!_DataJson.load" type="button" class="btn btn-primary btn-lg">Editar archivo</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="_DataJson.init">
+        <app-formulario></app-formulario>
+    </div>
+
+    <div *ngIf="_DataJson.load">
+        <app-load-json></app-load-json>  
+    </div>
+
 </div>

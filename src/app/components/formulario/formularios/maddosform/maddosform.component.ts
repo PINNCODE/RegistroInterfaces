@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { DataJsonService } from '../../../../services/data-json.service';
 
 @Component({
   selector: 'app-maddosform',
@@ -10,22 +11,32 @@ export class MaddosformComponent{
 
   formularioDos: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
 
-    this.formularioDos = this.fb.group({
-      'ejemJuguete': this.fb.array([]),
-      'ejemPromedio': this.fb.array([]),
-      'ejemComplejo': this.fb.array([]),
-    })
+    if (this._DataJson.formDos === undefined) {
+      this._DataJson.formDos = this.fb.group({
+        'ejemJuguete': this.fb.array([]),
+        'ejemPromedio': this.fb.array([]),
+        'ejemComplejo': this.fb.array([]),
+      })
+  
+      this.agregarEjmJuguete();
+      this.agregarEjmPromedio();
+      this.agregarEjmComplejo();
+    }
 
-    this.agregarEjmJuguete();
-    this.agregarEjmPromedio();
-    this.agregarEjmComplejo();
+    this._DataJson.formDos.statusChanges.subscribe(
+      data => {
+       if(data === 'VALID'){
+        this._DataJson.dataForm.controls['dataDos'].setValue(this._DataJson.formDos.value);
+       }
+      }
+    )
 
    }
 
    agregarEjmJuguete(){
-    (<FormArray>this.formularioDos.controls['ejemJuguete']).push(
+    (<FormArray>this._DataJson.formDos.controls['ejemJuguete']).push(
       this.fb.group({
         entrada: new FormControl('', [
           Validators.required
@@ -41,11 +52,11 @@ export class MaddosformComponent{
    }
 
    eliminarEjmJuguete(idx:number){
-    (<FormArray>this.formularioDos.controls['ejemJuguete']).removeAt(idx);
+    (<FormArray>this._DataJson.formDos.controls['ejemJuguete']).removeAt(idx);
   }
 
   agregarEjmPromedio(){
-    (<FormArray>this.formularioDos.controls['ejemPromedio']).push(
+    (<FormArray>this._DataJson.formDos.controls['ejemPromedio']).push(
       this.fb.group({
         entrada: new FormControl('', [
           Validators.required
@@ -61,11 +72,11 @@ export class MaddosformComponent{
    }
 
    eliminarEjmPromedio(idx:number){
-    (<FormArray>this.formularioDos.controls['ejemPromedio']).removeAt(idx);
+    (<FormArray>this._DataJson.formDos.controls['ejemPromedio']).removeAt(idx);
   }
 
   agregarEjmComplejo(){
-    (<FormArray>this.formularioDos.controls['ejemComplejo']).push(
+    (<FormArray>this._DataJson.formDos.controls['ejemComplejo']).push(
       this.fb.group({
         entrada: new FormControl('', [
           Validators.required
@@ -81,7 +92,7 @@ export class MaddosformComponent{
    }
 
    eliminarEjmComplejo(idx:number){
-    (<FormArray>this.formularioDos.controls['ejemComplejo']).removeAt(idx);
+    (<FormArray>this._DataJson.formDos.controls['ejemComplejo']).removeAt(idx);
   }
 
 }

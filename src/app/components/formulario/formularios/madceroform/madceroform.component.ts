@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { DataJsonService } from 'src/app/services/data-json.service';
 
 @Component({
   selector: 'app-madceroform',
@@ -9,7 +10,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class MadceroformComponent {
 
-  formularioCero: FormGroup;
   downloadJsonHref: any;
 
   nmgcero: Object = {
@@ -34,48 +34,63 @@ export class MadceroformComponent {
     fecha: ''
   }
 
-  constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) {
-    console.log(this.nmgcero);
+  constructor(
+    private fb: FormBuilder,
+    private sanitizer: DomSanitizer,
+    private _DataJson: DataJsonService
+    ) {
+    
+    if ( this._DataJson.formCero === undefined ) {
+      this._DataJson.formCero = this.fb.group({
+        'claveComponente': new FormControl('',[
+          Validators.required
+        ]),
+        'nombreComponente': new FormControl('',[
+          Validators.required
+        ]),
+        'tipo': new FormControl('',[
+          Validators.required
+        ]),
+        'clasACM': new FormControl('',[
+          Validators.required
+        ]),
+        'autores': this.fb.array([]),
+        'descProblema': new FormControl('', [
+          Validators.required
+        ]),
+        'reqFuncionales': new FormArray([
+  
+        ]),
+        'reqNoFuncionales': new FormArray([
+  
+        ]),
+        'aportacion': new FormControl('',[
+          Validators.required
+        ]),
+        'similitud': new FormControl('',[
+          Validators.required
+        ]),
+        'sintaxis': this.fb.array([]),
+      });
+  
+      this.agregarRF();
+      this.agregarNRF();
+      this.agregarAutor();
+      this.agregarParametro();
+    }
 
-    this.formularioCero = this.fb.group({
-      'claveComponente': new FormControl('',[
-        Validators.required
-      ]),
-      'nombreComponente': new FormControl('',[
-        Validators.required
-      ]),
-      'tipo': new FormControl('',[
-        Validators.required
-      ]),
-      'clasACM': new FormControl('',[
-        Validators.required
-      ]),
-      'autores': this.fb.array([]),
-      'descProblema': new FormControl('', [
-        Validators.required
-      ]),
-      'reqFuncionales': new FormArray([
-
-      ]),
-      'reqNoFuncionales': new FormArray([
-
-      ]),
-      'aportacion': new FormControl('',[
-        Validators.required
-      ]),
-      'similitud': new FormControl('',[
-        Validators.required
-      ]),
-      'sintaxis': this.fb.array([]),
-    });
-
-    this.agregarRF();
-    this.agregarAutor();
-    this.agregarParametro();
+    this._DataJson.formCero.statusChanges.subscribe(
+      data => {
+       if(data === 'VALID'){
+        this._DataJson.dataForm.controls['dataCero'].setValue(this._DataJson.formCero.value);
+       }
+      }
+    )
+    
   }
 
   agregarAutor(){
-    (<FormArray>this.formularioCero.controls['autores']).push(
+    (<FormArray>this._DataJson.formCero.controls['autores']).push(
       this.fb.group({
         nombreAutor: new FormControl(''),
         correoAutor: new FormControl(''),
@@ -85,46 +100,44 @@ export class MadceroformComponent {
   }
 
   agregarParametro(){
-    (<FormArray>this.formularioCero.controls['sintaxis']).push(
+    (<FormArray>this._DataJson.formCero.controls['sintaxis']).push(
       this.fb.group({
-        param: new FormControl(''),
-        tipoparam: new FormControl(''),
+        param: new FormControl('', [
+          Validators.required
+        ]),
+        tipoparam: new FormControl('',[
+          Validators.required
+        ]),
       })
     )
   }
 
   agregarRF(){
-    (<FormArray>this.formularioCero.controls['reqFuncionales']).push(
+    (<FormArray>this._DataJson.formCero.controls['reqFuncionales']).push(
       new FormControl('', Validators.required)
     )
   }
 
   agregarNRF(){
-    (<FormArray>this.formularioCero.controls['reqNoFuncionales']).push(
+    (<FormArray>this._DataJson.formCero.controls['reqNoFuncionales']).push(
       new FormControl('', Validators.required)
     )
   }
 
   eliminarAutor(idx:number){
-    (<FormArray>this.formularioCero.controls['autores']).removeAt(idx);
+    (<FormArray>this._DataJson.formCero.controls['autores']).removeAt(idx);
   }
 
   eliminarParametro(idx:number){
-    (<FormArray>this.formularioCero.controls['sintaxis']).removeAt(idx);
+    (<FormArray>this._DataJson.formCero.controls['sintaxis']).removeAt(idx);
   }
 
   eliminarRF(idx:number){
-    (<FormArray>this.formularioCero.controls['reqFuncionales']).removeAt(idx);
+    (<FormArray>this._DataJson.formCero.controls['reqFuncionales']).removeAt(idx);
   }
 
   eliminarNRF(idx:number){
-    (<FormArray>this.formularioCero.controls['reqFuncionales']).removeAt(idx);
-  }
-
-  generateDownloadJsonUri() {
-    var theJSON = JSON.stringify(this.formularioCero.value);
-    var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
-    this.downloadJsonHref = uri;
+    (<FormArray>this._DataJson.formCero.controls['reqNoFuncionales']).removeAt(idx);
   }
 
 }
