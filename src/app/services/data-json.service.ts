@@ -9,6 +9,7 @@ export class DataJsonService {
 
   init: boolean = false;
   load: boolean = false;
+  guia: boolean = false;
 
   downloadJsonHref: any;
   dataForm: FormGroup;

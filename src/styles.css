@@ -3,3 +3,21 @@
 .main-container {
     margin-top: 50px;
 }
+
+.genwik {
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 100px;
+    margin-top: 10%;
+}
+
+.genwik-title {
+    font-size: 10em;
+}
+
+.genwik-font {
+    font-family: 'Pacifico', cursive;
+}
+
+.col-new {
+    margin-top: 60px;
+}

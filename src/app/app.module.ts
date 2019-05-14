@@ -22,6 +22,8 @@ import { DataJsonService } from './services/data-json.service';
 import { GenJsonComponent } from './components/gen-json/gen-json.component';
 import { LoadJsonComponent } from './components/load-json/load-json.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { GuiaComponent } from './components/guia/guia.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     MadochoformComponent,
     NavComponent,
     GenJsonComponent,
-    LoadJsonComponent
+    LoadJsonComponent,
+    NavbarComponent,
+    GuiaComponent
   ],
   imports: [
     BrowserModule,

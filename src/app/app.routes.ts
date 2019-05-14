@@ -10,6 +10,7 @@ import { MadseisformComponent } from './components/formulario/formularios/madsei
 import { MadsieteformComponent } from './components/formulario/formularios/madsieteform/madsieteform.component';
 import { MadochoformComponent } from './components/formulario/formularios/madochoform/madochoform.component';
 import { GenJsonComponent } from './components/gen-json/gen-json.component';
+import { GuiaComponent } from './components/guia/guia.component';
 
 const APP_ROUTES: Routes = [
   { path: 'nivelCero', component: MadceroformComponent },
@@ -22,6 +23,7 @@ const APP_ROUTES: Routes = [
   { path: 'nivelSiete', component: MadsieteformComponent },
   { path: 'nivelOcho', component: MadochoformComponent },
   { path: 'genJson', component: GenJsonComponent },
+  { path: 'guia', component: GuiaComponent },
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

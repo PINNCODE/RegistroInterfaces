@@ -1,0 +1,446 @@
+<div class="main-container container">
+  <h1 class="genwik-font">Guía de usuario</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-1 ">
+        <ul class="nav flex-column sticky-top">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Carnet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tutorial</a>
+            </li>
+          </ul>
+    </div>
+    <div class="col-md-11">
+        <div class="card">
+            <div class="card-body">
+              <h3>Inicio</h3>
+              <hr>
+              <p class="text-justify">
+                Las metodologías de desarrollo de sistemas de ingeniería de software ofrecen un conjunto de pasos y buenas prácticas para el desarrollo 
+                con calidad de un sistema a través del ciclo de vida. Sin embargo, carecen de índices que valoren la madurez del sistema en sus etapas 
+                del ciclo de vida desde los requerimientos, código fuente y ejecutable.
+              </p>
+              <p class="text-justify">
+                  No hay una metodología que garantice la confiabilidad de un sistema al 100%, ésta solamente se logra una vez que los sistemas han sido
+                  expuestos (compartidos, puestos a prueba, usados, reutilizados), en diferentes niveles de ambientes.
+              </p>
+              <p class="text-justify">
+                  Ante esta problemática se ha desarrollado una guía para la evaluación del nivel de madurez en componentes de software ejecutable, esta 
+                  guía lleva por nombre <a href="">Niveles de madurez de componentes para su reutilización basados en la confiabilidad</a>, este documento describe 
+                  índices que valoran la confiabilidad de un componente a través de la exposición natural que sigue el ciclo de vida de desarrollo de software,
+                  independientemente de la metodología de desarrollo y paradigma de programación en la que fue desarrollado el componente. 
+              </p>
+              <h5>Niveles de madurez de componentes para su reutilización, basados en la confiabilidad</h5>
+              <hr>
+              <p class="text-justify">
+                Para evaluar un componente se debe iniciar en cada aspecto desde el nivel más bajo, si no cumple con un nivel continuar evaluando los niveles superiores. 
+              </p>
+              <div class="alert alert-warning" role="alert">
+                  <b>NOTA</b>: <u>NO</u> es necesario que los niveles se actualicen de manera seriada, es decir, se puede pasar a un nivel más alto desde un nivel inferior.
+              </div>
+              <h5 class="text-center"><b>Niveles de madurez</b></h5>
+              <hr>
+              <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-cero-tab" data-toggle="tab" href="#nav-cero" role="tab" aria-controls="nav-cero" aria-selected="true">0</a>
+                  <a class="nav-item nav-link" id="nav-uno-tab" data-toggle="tab" href="#nav-uno" role="tab" aria-controls="nav-uno" aria-selected="true">1</a>
+                  <a class="nav-item nav-link" id="nav-dos-tab" data-toggle="tab" href="#nav-dos" role="tab" aria-controls="nav-dos" aria-selected="false">2</a>
+                  <a class="nav-item nav-link" id="nav-tres-tab" data-toggle="tab" href="#nav-tres" role="tab" aria-controls="nav-tres" aria-selected="false">3</a>
+                  <a class="nav-item nav-link" id="nav-cuatro-tab" data-toggle="tab" href="#nav-cuatro" role="tab" aria-controls="nav-cuatro" aria-selected="false">4</a>
+                  <a class="nav-item nav-link" id="nav-cinco-tab" data-toggle="tab" href="#nav-cinco" role="tab" aria-controls="nav-cinco" aria-selected="false">5</a>
+                  <a class="nav-item nav-link" id="nav-seis-tab" data-toggle="tab" href="#nav-seis" role="tab" aria-controls="nav-seis" aria-selected="false">6</a>
+                  <a class="nav-item nav-link" id="nav-siete-tab" data-toggle="tab" href="#nav-siete" role="tab" aria-controls="nav-siete" aria-selected="false">7</a>
+                  <a class="nav-item nav-link" id="nav-ocho-tab" data-toggle="tab" href="#nav-ocho" role="tab" aria-controls="nav-ocho" aria-selected="false">8</a>
+                  <a class="nav-item nav-link" id="nav-todos-tab" data-toggle="tab" href="#nav-todos" role="tab" aria-controls="nav-todos" aria-selected="false">Todos</a>
+                </div>
+              </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="nav-uno" role="tabpanel" aria-labelledby="nav-uno-tab">
+                      <br>
+                      <h5 class="text-center">Nivel 0</h5>
+                      <table class="table table-ajust">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">Idea</th>
+                              <th scope="col">Código</th>
+                              <th scope="col">Exposición</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                ¿Tienes definidos los <b>parámetros de entrada y salida</b>  (requerimientos funcionales) en un diagrama de caja negra?
+                              </td>
+                              <td>
+                                ¿Se tiene la <b>sintaxis de entrada y salida</b> ?
+                              </td>
+                              <td>
+                                  ¿Se ha <b>definido el tipo de dato</b> para la entrada y salida del componente?
+                              </td>
+                            </tr>
+                      </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-cero" role="tabpanel" aria-labelledby="nav-cero-tab">
+                  <br>
+                    <h5 class="text-center">Nivel 1</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Tienes ya la <b>solución en algoritmo o diagrama</b> (de preferencia basado en un libro, artículo, página, repositorio)?
+                            </td>
+                            <td>
+                              ¿Se tiene una <b>relación algoritmo-comentarios-código</b>?
+                            </td>
+                            <td>
+                                ¿Dada cualquier entrada <b>se produce una salida</b>?
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-dos" role="tabpanel" aria-labelledby="nav-dos-tab">
+                    <br>
+                      <h5 class="text-center">Nivel 2</h5>
+                      <table class="table table-ajust">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">Idea</th>
+                              <th scope="col">Código</th>
+                              <th scope="col">Exposición</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                ¿Están definidas las <b>pruebas unitarias a nivel de idea</b>, juguete, promedio y complejas?
+                              </td>
+                              <td>
+                                <b>¿Hay estructuras que soportan las pruebas unitarias</b>, juguete, promedio <b>y complejas</b>?
+                              </td>
+                              <td>
+                                ¿<b>Pasaste todas las pruebas unitarias</b>?  
+                              </td>
+                            </tr>
+                      </table>
+                  </div>
+
+                <div class="tab-pane fade" id="nav-tres" role="tabpanel" aria-labelledby="nav-tres-tab">
+                  <br>
+                    <h5 class="text-center">Nivel 3</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Tienes descritos los <b>requerimientos NO funcionales</b> y cómo los has mejorado?  (análisis de complejidad)
+                            </td>
+                            <td>
+                              ¿<b>Se han agregado procesos</b> paralelizables, parámetros de E.S. o estructuras de datos <b>para cumplir los requerimientos no funcionales</b>?
+                            </td>
+                            <td>
+                              ¿<b>Cumple el rendimiento con los requerimientos no funcionales</b>?
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-cuatro" role="tabpanel" aria-labelledby="nav-cuatro-tab">
+                    <br>
+                    <h5 class="text-center">Nivel 4</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                                ¿Se generó una <b>nueva solución (es solución padre de otras)</b> del componente? (* opcional)
+                            </td>
+                            <td>
+                              ¿<b>Se ha reutilizado código en otro componente</b>?
+                            </td>
+                            <td>
+                              ¿<b>El componente nuevo no presenta fallas en el código</b>? 
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-cinco" role="tabpanel" aria-labelledby="nav-cinco-tab">
+                    <br>
+                    <h5 class="text-center">Nivel 5</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Tienes descrito el <b>reúso de tu componente</b> en al menos tres proyectos propios?
+                            </td>
+                            <td>
+                              ¿<b>Es robusto el código ante el reúso</b> en al menos tres proyectos <b>propios</b>?
+                            </td>
+                            <td>
+                              ¿El componente <b>funciona correctamente en al menos tres proyectos</b> propios? 
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-seis" role="tabpanel" aria-labelledby="nav-seis-tab">
+                    <br>
+                    <h5 class="text-center">Nivel 6</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Tienes <b>descrito el rehúso</b> de tu componente <b>de al menos tres desarrolladores diferentes</b>?
+                            </td>
+                            <td>
+                              ¿<b>Es robusto el código ante el reúso</b> en tres proyectos <b>externos</b>?
+                            </td>
+                            <td>
+                              ¿El componente <b>funciona correctamente en al menos dos desarrollos externos</b>?
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+                
+                <div class="tab-pane fade" id="nav-siete" role="tabpanel" aria-labelledby="nav-siete-tab">
+                    <br>
+                    <h5 class="text-center">Nivel 7</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Ha recibido <b>retroalimentación por un desarrollador</b>? 
+                            </td>
+                            <td>
+                              ¿El <b>código ha recibido una mejora</b>, modificación o corrección por un desarrollador != al autor?
+                            </td>
+                            <td>
+                              ¿<b>El componente funciona correctamente con las mejoras</b>? 
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-ocho" role="tabpanel" aria-labelledby="nav-ocho-tab">
+                    <br>
+                    <h5 class="text-center">Nivel 8</h5>
+                    <table class="table table-ajust">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              ¿Tienes descritas cuáles son las <b>referencias</b> a los usuarios y productos <b>que validan este componente</b>?
+                            </td>
+                            <td>
+                              ¿<b>Es robusto el código ante los usuarios,  productos y plataformas</b>? 
+                            </td>
+                            <td>
+                              ¿<b>Funciona correctamente ante usuarios,  productos, plataformas y contingencias</b>?
+                            </td>
+                          </tr>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-todos" role="tabpanel" aria-labelledby="nav-todos-tab">
+                    <br>
+                    <h5 class="text-center">Niveles de madurez</h5>
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                <td>
+                                  0
+                                </td>
+                                <td>
+                                  ¿Tienes definidos los <b>parámetros de entrada y salida</b>  (requerimientos funcionales) en un diagrama de caja negra?
+                                </td>
+                                <td>
+                                  ¿Se tiene la <b>sintaxis de entrada y salida</b> ?
+                                </td>
+                                <td>
+                                    ¿Se ha <b>definido el tipo de dato</b> para la entrada y salida del componente?
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  1
+                                </td>
+                                  <td>
+                                    ¿Tienes ya la <b>solución en algoritmo o diagrama</b> (de preferencia basado en un libro, artículo, página, repositorio)?
+                                  </td>
+                                  <td>
+                                    ¿Se tiene una <b>relación algoritmo-comentarios-código</b>?
+                                  </td>
+                                  <td>
+                                      ¿Dada cualquier entrada <b>se produce una salida</b>?
+                                  </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  2
+                                </td>
+                                  <td>
+                                    ¿Están definidas las <b>pruebas unitarias a nivel de idea</b>, juguete, promedio y complejas?
+                                  </td>
+                                  <td>
+                                    <b>¿Hay estructuras que soportan las pruebas unitarias</b>, juguete, promedio <b>y complejas</b>?
+                                  </td>
+                                  <td>
+                                    ¿<b>Pasaste todas las pruebas unitarias</b>?  
+                                  </td>
+                                </tr>                       
+                              <tr>
+                              <tr>
+                                <td>
+                                  3
+                                </td>
+                                <td>
+                                  ¿Tienes descritos los <b>requerimientos NO funcionales</b> y cómo los has mejorado?  (análisis de complejidad)
+                                </td>
+                                <td>
+                                  ¿<b>Se han agregado procesos</b> paralelizables, parámetros de E.S. o estructuras de datos <b>para cumplir los requerimientos no funcionales</b>?
+                                </td>
+                                <td>
+                                  ¿<b>Cumple el rendimiento con los requerimientos no funcionales</b>?
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  4
+                                </td>
+                                <td>
+                                  ¿Se generó una <b>nueva solución (es solución padre de otras)</b> del componente? (* opcional)
+                                </td>
+                                <td>
+                                  ¿<b>Se ha reutilizado código en otro componente</b>?
+                                </td>
+                                <td>
+                                  ¿<b>El componente nuevo no presenta fallas en el código</b>? 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  5
+                                </td>
+                                 <td>
+                                  ¿Tienes descrito el <b>reúso de tu componente</b> en al menos tres proyectos propios?
+                                </td>
+                                <td>
+                                  ¿<b>Es robusto el código ante el reúso</b> en al menos tres proyectos <b>propios</b>?
+                                </td>
+                                <td>
+                                  ¿El componente <b>funciona correctamente en al menos tres proyectos</b> propios? 
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  6
+                                </td>
+                                <td>
+                                  ¿Tienes <b>descrito el rehúso</b> de tu componente <b>de al menos tres desarrolladores diferentes</b>?
+                                </td>
+                                <td>
+                                  ¿<b>Es robusto el código ante el reúso</b> en tres proyectos <b>externos</b>?
+                                </td>
+                                <td>
+                                  ¿El componente <b>funciona correctamente en al menos dos desarrollos externos</b>?
+                                </td>
+                              </tr>
+                              <tr>
+                              <td>
+                                 7
+                              </td>
+                              <td>
+                                ¿Ha recibido <b>retroalimentación por un desarrollador</b>? 
+                              </td>
+                               <td>
+                                ¿El <b>código ha recibido una mejora</b>, modificación o corrección por un desarrollador != al autor?
+                              </td>
+                              <td>
+                                ¿<b>El componente funciona correctamente con las mejoras</b>? 
+                              </td>
+                           </tr>
+                            <tr>
+                              <td>
+                                8
+                              </td>
+                              <td>
+                                ¿Tienes descritas cuáles son las <b>referencias</b> a los usuarios y productos <b>que validan este componente</b>?
+                              </td>
+                              <td>
+                                ¿<b>Es robusto el código ante los usuarios,  productos y plataformas</b>? 
+                              </td>
+                              <td>
+                                ¿<b>Funciona correctamente ante usuarios,  productos, plataformas y contingencias</b>?
+                              </td>
+                            </tr>
+                    </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
