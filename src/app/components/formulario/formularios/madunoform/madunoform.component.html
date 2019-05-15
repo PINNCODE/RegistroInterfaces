@@ -3,16 +3,26 @@
       <form [formGroup]="_DataJson.formUno">
 
           <div class="form-group">
-              <label for="aportacion">Descripción de la solución</label>
+              <label for="aportacion">Algoritmo
+                    <i class="far fa-question-circle" 
+                    data-toggle="popover" 
+                    title="Escribir el algoritmo o un enlace de la imagen">
+                    </i>   
+              </label>
               <textarea class="form-control" id="descSolucion" rows="5" formControlName="descSolucion"></textarea>
           </div>
 
-          <p>Ejemplos</p>
+        <p>Ejemplos                     
+            <i class="far fa-question-circle" 
+            data-toggle="popover" 
+            title="Describe un ejemplo de aplicación">
+            </i>   
+        </p>
           <hr>
 
           <div class="row" formArrayName="ejemplos" *ngFor="let r of _DataJson.formUno.controls['ejemplos'].controls; let i = index" >
                   <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
-                    <label for="aportacion">Descripción de la solución</label>
+                    <label for="aportacion">&nbsp;</label>
                     <textarea class="form-control" id="ejemplos" rows="5" [formControlName]="i"></textarea>
                   </div>
 
@@ -37,7 +47,7 @@
 
 
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                   <div *ngIf="!_DataJson.formUno.valid" class="alert alert-danger" role="alert">
                       El formulario es incorrecto
                   </div>
@@ -45,18 +55,16 @@
                       El formulario es válido
                   </div>
               </div>
-              <!-- <div class="col-md-4">
-                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !_DataJson.formUno.valid, 'btn-outline-success': _DataJson.formUno.valid, 'disabled': !_DataJson.formUno.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
-                  [disabled]="!_DataJson.formUno.valid" 
-              </div> -->
-              <a (click)="_DataJson.generarJSON()" class="btn" title="Download JSON" [href]="_DataJson.downloadJsonHref" download="download.json">Generar JSON SRC</a>
           </div>
 
 
       </form>
   </div>
 
-  <div class="col-md-4 ">
+  <div class="col-md-4 bg-light">
+        <br>
+        <p class="text-center">Vista previa</p>
+        <hr>
       <pre class="sticky-top ">
 
           {{_DataJson.formUno.value|json}}

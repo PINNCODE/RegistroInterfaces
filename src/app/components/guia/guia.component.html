@@ -5,10 +5,10 @@
     <div class="col-md-1 ">
         <ul class="nav flex-column sticky-top">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio</a>
+              <a class="nav-link text-dark"  href="#inicio">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Carnet</a>
+              <a class="nav-link" href="#carnet">Carnet</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Tutorial</a>
@@ -16,9 +16,10 @@
           </ul>
     </div>
     <div class="col-md-11">
+        <!-- INICIO CARD -->
         <div class="card">
             <div class="card-body">
-              <h3>Inicio</h3>
+              <h3 id="inicio">Inicio</h3>
               <hr>
               <p class="text-justify">
                 Las metodologías de desarrollo de sistemas de ingeniería de software ofrecen un conjunto de pasos y buenas prácticas para el desarrollo 
@@ -437,10 +438,188 @@
                             </tr>
                     </table>
                 </div>
-
               </div>
+
+
+
             </div>
-          </div>
+        </div>
+        <!-- FIN CARD -->
+        <!-- INICIO CARNET -->
+        <div class="card m30">
+            <div class="card-body">
+              <h3 id="carnet">Estructura del <b>README carnet</b></h3>
+              <hr>
+              <p class="text-justify">
+                  La estructura del readme carnet consiste en la unión de los nueve niveles de madurez descritos anteriormente, 
+                  el propósito del carnet es tener acceso a toda la información relacionada con el componente en cada nivel de 
+                  madurez que este cumple.
+              </p>
+                
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Nivel</th>
+                      <th scope="col">Contenido</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">0</th>
+                      <td>
+                          [Clave del componente] <br>
+                          [Nombre del componente] <br>
+                          Es un componente de interfaz grafica u orientado al servicio <br>
+                          [Datos del autor: Nombre, Correo, Alias-GitLab] <br>
+                          <ul>
+                            <li>Clasificación derivada de las ramas ACM (Versión 2012)</li>
+                            <li>Descripción del problema</li>
+                            <ul>
+                              <li>Requerimientos Funcionales </li>
+                              <li>Requerimiento No Funcionales</li>
+                            </ul>
+                          </ul>
+                          ¿Qué está aportando el componente? <br>
+                          Descripción de los componentes más parecidos <br>
+                          Sintaxis: 
+                          [-KKKKKPARAM1:tipo –KKKKKPARAM2:tipo …                         -KKKKKPARAMN:tipo] <br>
+                          Fecha en que inicia el componente 
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>
+                          Descripción de la solución
+                          <ul>
+                            <li>Algoritmo </li>
+                            <li>Ejemplo</li>
+                            <li>Ejecución</li>
+                          </ul>                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>
+                        Descripción de corridas ( <b>junto con su entrada y salida</b> )
+                        <ul>
+                          <li>Juguete</li>
+                          <li>Promedio</li>
+                          <li>Complejas</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>
+                        Descripción del problema de casos complejos 
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>
+                        Lista de componentes padres y componentes hijos.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>
+                        Lista de proyectos propios en los que se ha utilizado
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>
+                        Lista de proyectos externos en los que se ha utilizado
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>
+                        Lista de cambios, mejoras y correcciones.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>
+                        Lista de artículos, tesis, aplicaciones en las que se ha utilizado. 
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              <h3>Formato carnet</h3>
+              <hr>
+              <p class="text-justify">
+                  El formato del readme carnet es .JSON, la razón de utilizar JSON es la facilitar su lectura y escritura, 
+                  es un formato ligero de intercambio de datos y utiliza convenciones que son familiares para los programadores, 
+                  en lenguajes como C, C ++, C #, Java, JavaScript, Perl, Python y muchos otros. Estas propiedades hacen de JSON 
+                  un lenguaje ideal para el intercambio de datos.
+              </p>
+
+              <h3>Ejemplo <small>nivel de madurez 7</small></h3>
+              <hr>
+              <p class="text-justify">
+                La generación del archivo carnet.json se generara a través de formularios establecidos por cada nivel de madurez, 
+                por un lado será visible el formulario con sus campos correspondientes y del otro se visualizara la parte del json 
+                que se esta generando a partir de ese formulario. 
+              </p>
+              <div class="row">
+                  <div class="col-md-7">
+                      <form [formGroup]="exm">
+                
+                          <p>Proyectos Externos</p>
+                
+                          <div class="row" formArrayName="historico" *ngFor="let ejemplo of exm.controls['historico'].controls; let i = index">
+                
+                              <div [formGroupName]="i" class="col-md-12">
+                                  <hr>
+                                  <div class="row">
+              
+                                      <div class="form-group col-md-6">
+                                          <label for="nombreAutor">Tipo</label>
+                                          <select class="custom-select" disabled formControlName="tipo">
+                                            <option selected disabled>Seleccione una opción</option>
+                                            <option value="cambio">Cambios</option>
+                                            <option value="mejora">Mejora</option>
+                                            <option value="correccion">Correción</option>
+                                          </select>
+                                      </div>
+                
+                                      <div class="form-group col-md-6">
+                                          <label for="nombreAutor">Titulo</label>
+                                          <input type="text" disabled class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="titulo">
+                                      </div>
+              
+                
+                                      <div class="form-group" class="col-md-12">
+                                          <label for="aportacion">¿Qué se realizó? </label>
+                                          <textarea class="form-control" disabled id="ejemplos" rows="5" formControlName="funcion"></textarea>
+                                      </div>
+                
+                                      <div class="form-group col-md-12">
+                                        <label for="salida">Fecha en que se realizó</label>
+                                        <input type="text" disabled class="form-control" name="correo" placeholder="DD/MM/AAAA" formControlName="fecha">
+              
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                
+                  <div class="col-md-5 bg-light">
+                    <p>Formato <b>.JSON</b></p>
+                      <pre>
+          
+                          {{exm.value|json}}
+                                    
+                      </pre>
+                  </div>
+              </div>
+              
+            </div>
+        </div>
+
     </div>
   </div>
 </div>

@@ -11,12 +11,22 @@
                   <div class="row">
 
                       <div class="form-group col-md-8">
-                          <label>Entrada</label>
+                          <label>Entrada
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
                       </div>
 
                       <div class="form-group col-md-4">
-                          <label >Salida</label>
+                          <label >Salida
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Describir la salida">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control"placeholder="Salida" formControlName="salida">
                       </div>
 
@@ -56,12 +66,22 @@
                   <div class="row">
 
                       <div class="form-group col-md-8">
-                          <label>Entrada</label>
+                          <label>Entrada
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
                       </div>
 
                       <div class="form-group col-md-4">
-                          <label >Salida</label>
+                          <label >Salida
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Describir la salida">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
                       </div>
 
@@ -101,12 +121,22 @@
                   <div class="row">
 
                       <div class="form-group col-md-8">
-                          <label >Entrada</label>
+                          <label >Entrada
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
                       </div>
 
                       <div class="form-group col-md-4">
-                          <label>Salida</label>
+                          <label>Salida
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Describir la salida">
+                                </i>  
+                          </label>
                           <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
                       </div>
 
@@ -138,7 +168,7 @@
           </div>
 
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                   <div *ngIf="!_DataJson.formDos.valid" class="alert alert-danger" role="alert">
                       El formulario es incorrecto
                   </div>
@@ -152,7 +182,10 @@
       </form>
   </div>
 
-  <div class="col-md-4 ">
+  <div class="col-md-4 bg-light">
+        <br>
+        <p class="text-center">Vista previa</p>
+        <hr>
       <pre class="sticky-top ">
 
           {{_DataJson.formDos.value|json}}

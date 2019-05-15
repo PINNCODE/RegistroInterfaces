@@ -11,23 +11,43 @@
                   <div class="row">
 
                       <div class="form-group col-md-6">
-                          <label for="nombreAutor">Nombre componente</label>
-                          <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="nombre">
+                          <label for="nombreAutor">Nombre componente
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Nombre componente">
+                                </i>
+                          </label>
+                          <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre componente" formControlName="nombre">
                       </div>
 
                       <div class="form-group col-md-6">
-                          <label for="salida">Referencia</label>
-                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="referencia">
+                          <label for="salida">Referencia
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Referencia del componente">
+                                </i>
+                          </label>
+                          <input type="text" class="form-control" name="correo" placeholder="Referencia" formControlName="referencia">
                       </div>
 
                       <div class="form-group" class="col-md-12">
-                          <label for="aportacion">Descripción de la corrida</label>
+                          <label for="aportacion">Función del componente
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Función que empeña el componente padre en tú componente">
+                                </i>
+                          </label>
                           <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
                       </div>
 
                       <div class="form-group col-md-12">
-                        <label for="salida">URL</label>
-                        <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="url">
+                        <label for="salida">URL
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Ingresa la URL del componente padre">
+                                </i>
+                        </label>
+                        <input type="text" class="form-control" name="correo" placeholder="URL" formControlName="url">
                       </div>
 
                       <div class="form-group col-md-12" *ngIf="i!==0">
@@ -61,22 +81,42 @@
                   <div class="row">
 
                     <div class="form-group col-md-6">
-                        <label for="nombreAutor">Nombre componente</label>
+                        <label for="nombreAutor">Nombre componente
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Nombre componente">
+                                </i>
+                        </label>
                         <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="nombre">
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label for="salida">Referencia</label>
+                        <label for="salida">Referencia
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Referencia del componente">
+                                </i>
+                        </label>
                         <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="referencia">
                     </div>
 
                     <div class="form-group" class="col-md-12">
-                        <label for="aportacion">Descripción de la corrida</label>
+                        <label for="aportacion">Función del componente
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Función que empeña el componente padre en tú componente">
+                                </i>
+                        </label>
                         <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
                     </div>
 
                     <div class="form-group col-md-12">
-                      <label for="salida">URL</label>
+                      <label for="salida">URL
+                            <i class="far fa-question-circle" 
+                            data-toggle="popover" 
+                            title="Ingresa la URL del componente padre">
+                            </i>
+                      </label>
                       <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="url">
                     </div>
 
@@ -104,7 +144,7 @@
 
 
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                   <div *ngIf="!_DataJson.formCuatro.valid" class="alert alert-danger" role="alert">
                       El formulario es incorrecto
                   </div>
@@ -122,7 +162,7 @@
       </form>
   </div>
 
-  <div class="col-md-4 ">
+  <div class="col-md-4 bg-light">
       <pre class="sticky-top ">
 
           {{_DataJson.formCuatro.value|json}}

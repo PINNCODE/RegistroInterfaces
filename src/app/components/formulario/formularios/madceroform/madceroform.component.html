@@ -4,12 +4,23 @@
 
             <div class="row">
                 <div class="form-group col-md-6">
-                    <label >Clave Componente</label>
+                    <label >Clave Componente 
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="La clave del componente debe ser única y de acuerdo al lo establecido en el formato XXX" >
+                        </i>
+                    </label>
                     <input type="text" class="form-control" placeholder="Clave Componente" formControlName="claveComponente">
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label >Nombre Componente</label>
+                    <label >Nombre Componente
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="Nombre Componente" 
+                        data-content="El nombre del componente debe iniciar con la primer letra de cada palabra en maysucula">
+                        </i>
+                    </label>
                     <input type="text" class="form-control" placeholder="Nombre Componente" formControlName="nombreComponente">
                 </div>
             </div>
@@ -18,7 +29,13 @@
 
                 <div class="col-md-6">
 
-                    <p>Tipo de componente</p>
+                    <p>Tipo de componente 
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="El tipo del componente es orientado al servicio su salida será utilizado como entrada de otro
+                        componente, el tipo interfaz grafica ofrece una salida final, es decir, una salida interpretable por el usuario.">
+                        </i>
+                    </p>
 
                     <div class="form-group">
                         <select class="custom-select" formControlName="tipo">
@@ -31,25 +48,32 @@
                 </div>
 
                 <div class="col-md-6">
-                    <p>Clasificación de ACM (Versión 2012)</p>
+                    <p>Clasificación de ACM (Versión 2012)
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="Clasificación de ACM (Versión 2012)" 
+                        data-content="Esto es beneficioso para usted porque la categorización precisa proporciona al lector una referencia de contenido rápida, 
+                        lo que facilita la búsqueda de publicaciones relacionadas, así como las búsquedas de su trabajo en la Biblioteca digital de ACM y en otros recursos en línea. ">
+                        </i>
+                    </p>
 
                     <div class="form-group">
                         <select class="custom-select" formControlName="clasACM">
-                                  <option selected disabled>Seleccione una opción</option>
-                                  <option value="General and reference">General and reference</option>
-                                  <option value="Hardware">Hardware</option>
-                                  <option value="Computer systems organization">Computer systems organization</option>
-                                  <option value="Networks">Networks</option>
-                                  <option value="Software and its engineering">Software and its engineering</option>
-                                  <option value="Theory of computation">Theory of computation</option>
-                                  <option value="Mathematics of computing">Mathematics of computing</option>
-                                  <option value="Information systems">Information systems</option>
-                                  <option value="Security and privacity">Security and privacity</option>
-                                  <option value="Human-centered computing">Human-centered computing</option>
-                                  <option value="Computing methodologies">Computing methodologies</option>
-                                  <option value="Applied computing">Applied computing</option>
-                                  <option value="Social and professional topics">Social and professional topics</option>
-                              </select>
+                            <option selected disabled>Seleccione una opción</option>
+                            <option value="General and reference">General and reference</option>
+                            <option value="Hardware">Hardware</option>
+                            <option value="Computer systems organization">Computer systems organization</option>
+                            <option value="Networks">Networks</option>
+                            <option value="Software and its engineering">Software and its engineering</option>
+                            <option value="Theory of computation">Theory of computation</option>
+                            <option value="Mathematics of computing">Mathematics of computing</option>
+                            <option value="Information systems">Information systems</option>
+                            <option value="Security and privacity">Security and privacity</option>
+                            <option value="Human-centered computing">Human-centered computing</option>
+                            <option value="Computing methodologies">Computing methodologies</option>
+                            <option value="Applied computing">Applied computing</option>
+                            <option value="Social and professional topics">Social and professional topics</option>
+                        </select>
                     </div>
                 </div>
 
@@ -65,17 +89,32 @@
                     <div class="row">
 
                         <div class="form-group col-md-4">
-                            <label>Nombre</label>
+                            <label>Nombre del autor
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="El nombre del autor debe iniciar con la primer letra de cada palabra en mayúscula">
+                                </i>
+                            </label>
                             <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="nombreAutor">
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label>Correo</label>
+                            <label>Correo del autor
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Es importante complir con el siguiente patron example@dominio.com (.com.mx, .mx y cualquier otra extensións">
+                                </i>
+                            </label>
                             <input type="text" class="form-control" placeholder="Nombre Componente" formControlName="correoAutor">
                         </div>
 
                         <div class="form-group" [ngClass]="{'col-md-4': i===0, 'col-md-3': i!==0}">
-                            <label>Alias en GitLab</label>
+                            <label>Alias en GitLab
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Debe ser exactamente el mismo nombre, respetando mayúsculas y minúsculas">
+                                </i>
+                            </label>
                             <input type="text" class="form-control" placeholder="Alias en gitlab" formControlName="aliasGitlab">
                         </div>
                         <div class="form-group col-md-1" *ngIf="i!==0">
@@ -92,9 +131,11 @@
 
                 <div class="row">
 
-                    <div class="form-group col-md-2 offset-md-10">
+                    <div class="form-group col-md-12">
                         <label>&nbsp;</label>
-                        <button type="button" (click)="agregarAutor()" class="btn btn-success form-control">+</button>
+                        <div class="float-right">
+                            <button type="button" (click)="agregarAutor()" class="btn btn-success form-control">+</button>
+                        </div>
                     </div>
 
                 </div>
@@ -102,7 +143,12 @@
 
 
             <div class="form-group">
-                <label>Descripcion del problema</label>
+                <label>Descripción del problema
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="La descripción del problema deberá ser mayor a 140 caracteres">
+                        </i>                    
+                </label>
                 <textarea class="form-control" rows="4" formControlName="descProblema"></textarea>
             </div>
 
@@ -112,7 +158,12 @@
 
                 <div class="col-md-6">
 
-                        <p>Req. Funcionales</p>
+                        <p>Req. Funcionales
+                            <i class="far fa-question-circle" 
+                            data-toggle="popover" 
+                            title="Req. Funcionales">
+                            </i>        
+                        </p>
 
                         <div class="row" formArrayName="reqFuncionales" *ngFor="let r of _DataJson.formCero.controls['reqFuncionales'].controls; let i = index" >
             
@@ -130,14 +181,21 @@
             
                         <div class="form-group col-md-3 offset-md-9">
                             <label>&nbsp;</label>
-                            <button type="button" (click)="agregarRF()" class="btn btn-success form-control">+</button>
+                            <div class="float-right">
+                                <button type="button" (click)="agregarRF()" class="btn btn-success form-control">+</button>
+                            </div>
                         </div>
 
                 </div>
 
                 <div class="col-md-6">
 
-                        <p>Req. No Funcionales</p>
+                        <p>Req. No Funcionales
+                            <i class="far fa-question-circle" 
+                            data-toggle="popover" 
+                            title="Req. No Funcionales">
+                            </i>    
+                        </p>
 
                         <div class="row" formArrayName="reqNoFuncionales" *ngFor="let r of _DataJson.formCero.controls['reqNoFuncionales'].controls; let i = index" >
             
@@ -158,7 +216,9 @@
             
                                 <div class="form-group col-md-3 offset-md-9">
                                     <label>&nbsp;</label>
-                                    <button type="button" (click)="agregarNRF()" class="btn btn-success form-control">+</button>
+                                    <div class="float-right">
+                                        <button type="button" (click)="agregarNRF()" class="btn btn-success form-control">+</button>
+                                    </div>
                                 </div>
             
                             </div>
@@ -169,12 +229,22 @@
             </div>
 
             <div class="form-group">
-                <label>Qué aporta el componente</label>
+                <label>¿Qué aporta el componente?
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="Deberá ser mayor a 140 caracteres">
+                        </i> 
+                </label>
                 <textarea class="form-control" rows="4" formControlName="aportacion"></textarea>
             </div>
 
             <div class="form-group">
-                <label >Cuál es la similitud con otros componentess</label>
+                <label>¿Cuál es la similitud con otros componentes?
+                        <i class="far fa-question-circle" 
+                        data-toggle="popover" 
+                        title="Deberá ser mayor a 140 caracteresDeberá ser mayor a 140 caracteres" >
+                        </i>                     
+                </label>
                 <textarea class="form-control" rows="4" formControlName="similitud"></textarea>
             </div>
 
@@ -187,13 +257,28 @@
                     <div class="row">
 
                         <div class="form-group" [ngClass]="{'col-md-6': i===0, 'col-md-5': i!==0}">
-                            <label>Parámetro</label>
+                            <label>Nombre del parámetro
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="El nombre del parametro debera ser todo en mayúsculas, sin espacios y con una longitud maxima de 4 caracteres">
+                                </i>  
+                            </label>
                             <input type="text" class="form-control" placeholder="Parámetro" formControlName="param">
                         </div>
 
                         <div class="form-group" [ngClass]="{'col-md-6': i===0, 'col-md-5': i!==0}">
-                            <label >Tipo de dato</label>
-                            <input type="text" class="form-control" placeholder="Tipo de dato" formControlName="tipoparam">
+                            <label >Tipo de dato
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="El tipo de dato será indexado al parámetro establecido">
+                                </i>  
+                            </label>
+                            <select class="custom-select" formControlName="tipoparam">
+                                <option value="int">Entero</option>
+                                <option value="float">Flotante</option>
+                                <option value="date">Fecha</option>
+                                <option value="rout">Ruta</option>
+                            </select>
                         </div>
                         <div class="form-group col-md-2" *ngIf="i!==0">
                             <label>&nbsp;</label>
@@ -209,16 +294,18 @@
 
                 <div class="row">
 
-                    <div class="form-group col-md-3 offset-md-9">
+                    <div class="form-group col-md-12">
                         <label>&nbsp;</label>
-                        <button type="button" (click)="agregarParametro()" class="btn btn-success form-control">+</button>
+                        <div class="float-right">
+                            <button type="button" (click)="agregarParametro()" class="btn btn-success form-control">+</button>
+                        </div>
                     </div>
 
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div *ngIf="!_DataJson.formCero.valid" class="alert alert-danger" role="alert">
                         El formulario es incorrecto
                     </div>
@@ -236,7 +323,10 @@
         </form>
     </div>
 
-    <div class="col-md-4 ">
+    <div class="col-md-4 bg-light">
+        <br>
+        <p class="text-center">Vista previa</p>
+        <hr>
         <pre class="sticky-top ">
 
             {{_DataJson.formCero.value|json}}

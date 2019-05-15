@@ -11,7 +11,12 @@
                   <div class="row">
 
                       <div class="form-group" class="col-md-12">
-                          <label for="aportacion">Descripción</label>
+                          <label for="aportacion">Descripción
+                                <i class="far fa-question-circle" 
+                                data-toggle="popover" 
+                                title="Descripción del problema en casos complejos">
+                                </i>
+                          </label>
                           <textarea class="form-control" id="ejemplos" rows="5" formControlName="descripcion"></textarea>
                       </div>
 
@@ -38,7 +43,7 @@
           </div>
 
           <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                   <div *ngIf="!_DataJson.formTres.valid" class="alert alert-danger" role="alert">
                       El formulario es incorrecto
                   </div>
@@ -46,17 +51,13 @@
                       El formulario es valido
                   </div>
               </div>
-              <!-- <div class="col-md-4">
-                  <a (click)="generateDownloadJsonUri()" class="btn" [ngClass]="{'btn-outline-danger': !_DataJson.formTres.valid, 'btn-outline-success': _DataJson.formTres.valid, 'disabled': !_DataJson.formTres.valid}" title="Download JSON" [href]="downloadJsonHref" download="download.json">Generar JSON</a>
-                  [disabled]="!_DataJson.formTres.valid" 
-              </div> -->
           </div>
 
 
       </form>
   </div>
 
-  <div class="col-md-4 ">
+  <div class="col-md-4 bg-light">
       <pre class="sticky-top ">
 
           {{_DataJson.formTres.value|json}}
