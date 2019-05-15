@@ -4,7 +4,7 @@
 
           <p>Registro de Lista de artículos, tesis, aplicaciones en las que se ha utilizado.</p>
 
-          <div class="row" formArrayName="exposicion" *ngFor="let ejemplo of _DataJson.formOcho.controls['exposicion'].controls; let i = index">
+          <div class="row" formArrayName="exposicion" *ngFor="let ejemplo of getControlsFromExp(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>

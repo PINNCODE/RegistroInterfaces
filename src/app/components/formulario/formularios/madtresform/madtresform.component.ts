@@ -11,7 +11,7 @@ export class MadtresformComponent{
 
   formularioTres: FormGroup;
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) { 
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) { 
     if (this._DataJson.formTres === undefined) {
       this._DataJson.formTres = this.fb.group({
         'descCasoComplejo': this.fb.array([])
@@ -39,7 +39,11 @@ export class MadtresformComponent{
   }
 
   eliminardescCasoComplejo(idx:number){
-    (<FormArray>this._DataJson.formTres.controls['ejemJuguete']).removeAt(idx);
+    (<FormArray>this._DataJson.formTres.controls['descCasoComplejo']).removeAt(idx);
+  }
+
+  getControlsFromEjemComplejo() {
+    return (<FormArray>this._DataJson.formTres.get('descCasoComplejo')).controls;
   }
 
 }

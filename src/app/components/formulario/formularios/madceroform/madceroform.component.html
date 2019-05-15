@@ -82,7 +82,7 @@
             <p>Datos del autor</p>
 
             <div class="row" formArrayName="autores" 
-                 *ngFor="let autor of _DataJson.formCero.controls['autores'].controls; let i = index">
+                 *ngFor="let autor of getControlsFromAutores(); let i = index">
 
                 <div [formGroupName]="i" class="col-md-12">
                     <hr>
@@ -165,7 +165,7 @@
                             </i>        
                         </p>
 
-                        <div class="row" formArrayName="reqFuncionales" *ngFor="let r of _DataJson.formCero.controls['reqFuncionales'].controls; let i = index" >
+                        <div class="row" formArrayName="reqFuncionales" *ngFor="let r of getControlsFromRF(); let i = index" >
             
                                 <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
                                     <!-- <label for="param">Requerimiento funcional</label> -->
@@ -197,7 +197,7 @@
                             </i>    
                         </p>
 
-                        <div class="row" formArrayName="reqNoFuncionales" *ngFor="let r of _DataJson.formCero.controls['reqNoFuncionales'].controls; let i = index" >
+                        <div class="row" formArrayName="reqNoFuncionales" *ngFor="let r of getControlsFromRNF(); let i = index" >
             
                                 <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
                                     <!-- <label for="param">Requerimiento funcional</label> -->
@@ -250,7 +250,7 @@
 
             <p>Sintaxis</p>
 
-            <div class="row" formArrayName="sintaxis" *ngFor="let autor of _DataJson.formCero.controls['sintaxis'].controls; let i = index">
+            <div class="row" formArrayName="sintaxis" *ngFor="let autor of getControlsFromSintaxis(); let i = index">
 
                 <div [formGroupName]="i" class="col-md-12">
                     <hr>

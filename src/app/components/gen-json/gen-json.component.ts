@@ -10,7 +10,7 @@ export class GenJsonComponent {
 
   arrOk: string[];
 
-  constructor( private _DataJson: DataJsonService ) {
+  constructor( public _DataJson: DataJsonService ) {
     if(this._DataJson.formCero.status !== 'INVALID' || this._DataJson.formCero.status === undefined){
       
     }else{

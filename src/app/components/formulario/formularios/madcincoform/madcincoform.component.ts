@@ -9,7 +9,7 @@ import { DataJsonService } from '../../../../services/data-json.service';
 })
 export class MadcincoformComponent{
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if ( this._DataJson.formCinco === undefined) {
       this._DataJson.formCinco = this.fb.group({

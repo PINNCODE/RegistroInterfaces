@@ -4,7 +4,7 @@
 
           <p>Componentes padre</p>
 
-          <div class="row" formArrayName="compPadre" *ngFor="let ejemplo of _DataJson.formCuatro.controls['compPadre'].controls; let i = index">
+          <div class="row" formArrayName="compPadre" *ngFor="let ejemplo of getControlsFromPadre(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>
@@ -74,7 +74,7 @@
 
           <p>Componentes hijo</p>
 
-          <div class="row" formArrayName="compHijo" *ngFor="let ejemplo of _DataJson.formCuatro.controls['compHijo'].controls; let i = index">
+          <div class="row" formArrayName="compHijo" *ngFor="let ejemplo of getControlsFromHijo(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>

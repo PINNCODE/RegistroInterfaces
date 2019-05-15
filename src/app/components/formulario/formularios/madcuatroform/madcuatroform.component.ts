@@ -10,7 +10,7 @@ import { DataJsonService } from '../../../../services/data-json.service';
 export class MadcuatroformComponent {
 
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if (this._DataJson.formCuatro === undefined) {
       this._DataJson.formCuatro = this.fb.group({
@@ -76,6 +76,14 @@ export class MadcuatroformComponent {
 
    eliminarcompHijo(idx:number){
     (<FormArray>this._DataJson.formCuatro.controls['compHijo']).removeAt(idx);
+  }
+
+  getControlsFromHijo() {
+    return (<FormArray>this._DataJson.formCuatro.get('compHijo')).controls;
+  }
+
+  getControlsFromPadre() {
+    return (<FormArray>this._DataJson.formCuatro.get('compPadre')).controls;
   }
 
 }

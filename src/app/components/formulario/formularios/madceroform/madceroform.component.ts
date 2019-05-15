@@ -36,8 +36,7 @@ export class MadceroformComponent {
 
   constructor(
     private fb: FormBuilder,
-    private sanitizer: DomSanitizer,
-    private _DataJson: DataJsonService
+    public _DataJson: DataJsonService
     ) {
     
     if ( this._DataJson.formCero === undefined ) {
@@ -138,6 +137,22 @@ export class MadceroformComponent {
 
   eliminarNRF(idx:number){
     (<FormArray>this._DataJson.formCero.controls['reqNoFuncionales']).removeAt(idx);
+  }
+
+  getControlsFromAutores() {
+    return (<FormArray>this._DataJson.formCero.get('autores')).controls;
+  }
+
+  getControlsFromRF() {
+    return (<FormArray>this._DataJson.formCero.get('reqFuncionales')).controls;
+  }
+
+  getControlsFromRNF() {
+    return (<FormArray>this._DataJson.formCero.get('reqNoFuncionales')).controls;
+  }
+  
+  getControlsFromSintaxis() {
+    return (<FormArray>this._DataJson.formCero.get('sintaxis')).controls;
   }
 
 }

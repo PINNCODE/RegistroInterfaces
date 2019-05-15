@@ -11,7 +11,7 @@ export class MadochoformComponent{
 
   formularioOcho: FormGroup;
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if ( this._DataJson.formOcho === undefined ) {
       this._DataJson.formOcho = this.fb.group({
@@ -49,6 +49,10 @@ export class MadochoformComponent{
 
    eliminarExposicion(idx:number){
     (<FormArray>this._DataJson.formOcho.controls['exposicion']).removeAt(idx);
+  }
+
+  getControlsFromExp() {
+    return (<FormArray>this._DataJson.formOcho.get('exposicion')).controls;
   }
 
 }

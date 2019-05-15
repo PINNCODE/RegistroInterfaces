@@ -4,7 +4,7 @@
 
           <p>Corrida de juguete</p>
 
-          <div class="row" formArrayName="ejemJuguete" *ngFor="let ejemplo of _DataJson.formDos.controls['ejemJuguete'].controls; let i = index">
+          <div class="row" formArrayName="ejemJuguete" *ngFor="let ejemplo of getControlsFromEjemJuguete(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>
@@ -59,7 +59,7 @@
 
           <p>Corrida de Promedio</p>
 
-          <div class="row" formArrayName="ejemPromedio" *ngFor="let ejemplo of _DataJson.formDos.controls['ejemPromedio'].controls; let i = index">
+          <div class="row" formArrayName="ejemPromedio" *ngFor="let ejemplo of getControlsFromEjemPromedio(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>
@@ -114,7 +114,7 @@
 
           <p>Corrida de Complejo</p>
 
-          <div class="row" formArrayName="ejemComplejo" *ngFor="let ejemplo of _DataJson.formDos.controls['ejemComplejo'].controls; let i = index">
+          <div class="row" formArrayName="ejemComplejo" *ngFor="let ejemplo of getControlsFromEjemComplejo(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>

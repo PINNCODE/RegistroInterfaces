@@ -20,7 +20,7 @@
         </p>
           <hr>
 
-          <div class="row" formArrayName="ejemplos" *ngFor="let r of _DataJson.formUno.controls['ejemplos'].controls; let i = index" >
+          <div class="row" formArrayName="ejemplos" *ngFor="let r of getControlsFromEjemplos(); let i = index" >
                   <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-10': i!==0}">
                     <label for="aportacion">&nbsp;</label>
                     <textarea class="form-control" id="ejemplos" rows="5" [formControlName]="i"></textarea>

@@ -11,7 +11,7 @@ export class MadseisformComponent {
 
   formularioSeis: FormGroup;
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if ( this._DataJson.formSeis === undefined) {
       this._DataJson.formSeis = this.fb.group({
@@ -52,6 +52,10 @@ export class MadseisformComponent {
 
    eliminarcompExternos(idx:number){
     (<FormArray>this._DataJson.formSeis.controls['compExternos']).removeAt(idx);
+  }
+
+  getControlsFromExternos() {
+    return (<FormArray>this._DataJson.formSeis.get('compExternos')).controls;
   }
 
 }

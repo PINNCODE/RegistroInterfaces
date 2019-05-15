@@ -4,7 +4,7 @@
 
           <p>Proyectos propios</p>
 
-          <div class="row" formArrayName="compPropio" *ngFor="let ejemplo of _DataJson.formCinco.controls['compPropio'].controls; let i = index">
+          <div class="row" formArrayName="compPropio" *ngFor="let ejemplo of _DataJson.formCinco.get['compPropio']; let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>

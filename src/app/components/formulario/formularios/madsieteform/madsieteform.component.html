@@ -4,7 +4,7 @@
   
             <p>Proyectos Externos</p>
   
-            <div class="row" formArrayName="historico" *ngFor="let ejemplo of _DataJson.formSiete.controls['historico'].controls; let i = index">
+            <div class="row" formArrayName="historico" *ngFor="let ejemplo of getControlsFromHistorico(); let i = index">
   
                 <div [formGroupName]="i" class="col-md-12">
                     <hr>

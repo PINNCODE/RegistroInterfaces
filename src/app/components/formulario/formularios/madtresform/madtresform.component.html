@@ -4,7 +4,7 @@
 
           <p>Descripción del problema de casos complejos</p>
 
-          <div class="row" formArrayName="descCasoComplejo" *ngFor="let ejemplo of _DataJson.formTres.controls['descCasoComplejo'].controls; let i = index">
+          <div class="row" formArrayName="descCasoComplejo" *ngFor="let ejemplo of getControlsFromEjemComplejo(); let i = index">
 
               <div [formGroupName]="i" class="col-md-12">
                   <hr>

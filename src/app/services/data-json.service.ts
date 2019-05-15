@@ -23,7 +23,7 @@ export class DataJsonService {
   formSiete: FormGroup;
   formOcho: FormGroup;
 
-  dataJson: FormGroup;
+  public dataJson: FormGroup;
 
   constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) { 
     this.dataForm = this.fb.group({

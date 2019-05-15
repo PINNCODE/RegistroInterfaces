@@ -11,7 +11,7 @@ export class MaddosformComponent{
 
   formularioDos: FormGroup;
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if (this._DataJson.formDos === undefined) {
       this._DataJson.formDos = this.fb.group({
@@ -93,6 +93,19 @@ export class MaddosformComponent{
 
    eliminarEjmComplejo(idx:number){
     (<FormArray>this._DataJson.formDos.controls['ejemComplejo']).removeAt(idx);
+  }
+
+  getControlsFromEjemJuguete() {
+    return (<FormArray>this._DataJson.formDos.controls['ejemJuguete']).controls;
+  }
+
+  getControlsFromEjemPromedio() {
+    return (<FormArray>this._DataJson.formDos.controls['ejemPromedio']).controls;
+  }
+
+
+  getControlsFromEjemComplejo() {
+    return (<FormArray>this._DataJson.formDos.get('ejemComplejo')).controls;
   }
 
 }

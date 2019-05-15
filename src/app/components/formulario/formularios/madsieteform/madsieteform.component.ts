@@ -9,7 +9,7 @@ import { DataJsonService } from '../../../../services/data-json.service';
 })
 export class MadsieteformComponent {
 
-  constructor( private fb: FormBuilder, private _DataJson: DataJsonService ) { 
+  constructor( private fb: FormBuilder, public _DataJson: DataJsonService ) { 
 
     if ( this._DataJson.formSiete === undefined) {
       this._DataJson.formSiete = this.fb.group({
@@ -50,6 +50,10 @@ export class MadsieteformComponent {
 
    eliminarHistorico(idx:number){
     (<FormArray>this._DataJson.formSiete.controls['historico']).removeAt(idx);
+  }
+
+  getControlsFromHistorico() {
+    return (<FormArray>this._DataJson.formSiete.get('historico')).controls;
   }
 
 }

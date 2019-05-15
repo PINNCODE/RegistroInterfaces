@@ -569,7 +569,7 @@
                 
                           <p>Proyectos Externos</p>
                 
-                          <div class="row" formArrayName="historico" *ngFor="let ejemplo of exm.controls['historico'].controls; let i = index">
+                          <div class="row" formArrayName="historico" *ngFor="let ejemplo of getControlsFromExp(); let i = index">
                 
                               <div [formGroupName]="i" class="col-md-12">
                                   <hr>

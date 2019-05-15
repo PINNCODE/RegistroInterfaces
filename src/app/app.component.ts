@@ -8,7 +8,7 @@ import { DataJsonService } from './services/data-json.service';
 })
 export class AppComponent {
   
-  constructor(private _DataJson: DataJsonService){
+  constructor(public _DataJson: DataJsonService){
     
   }
 

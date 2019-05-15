@@ -43,4 +43,8 @@ export class GuiaComponent {
     (<FormArray>this.exm.controls['historico']).removeAt(idx);
   }
 
+  getControlsFromExp() {
+    return (<FormArray>this.exm.get('historico')).controls;
+  }
+
 }

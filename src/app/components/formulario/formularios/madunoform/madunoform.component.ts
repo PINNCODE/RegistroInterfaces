@@ -11,7 +11,7 @@ export class MadunoformComponent {
 
   formularioUno: FormGroup;
 
-  constructor(private fb: FormBuilder, private _DataJson: DataJsonService) {
+  constructor(private fb: FormBuilder, public _DataJson: DataJsonService) {
 
     if (this._DataJson.formUno === undefined) {
       
@@ -19,13 +19,10 @@ export class MadunoformComponent {
         'descSolucion': new FormControl('',[
           Validators.required
         ]),
-        'ejemplos': new FormArray([
-  
-        ])
+        'ejemplos': this.fb.array([])
       })
   
       this.agregarEjemplo();
-      
     }
 
     this._DataJson.formUno.statusChanges.subscribe(
@@ -46,6 +43,10 @@ export class MadunoformComponent {
 
   eliminarEjemplo(idx:number){
     (<FormArray>this._DataJson.formUno.controls['ejemplos']).removeAt(idx);
+  }
+
+  getControlsFromEjemplos() {
+    return (<FormArray>this._DataJson.formUno.controls['ejemplos']).controls;
   }
 
 }
