@@ -30,28 +30,37 @@
                           <input type="text" class="form-control"placeholder="Salida" formControlName="salida">
                       </div>
 
-                      <div class="form-group" class="col-md-12">
+                      <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
                           <label >Descripción de la corrida</label>
                           <textarea class="form-control" rows="5" formControlName="descripcion"></textarea>
                       </div>
 
-                      <div class="form-group col-md-12" *ngIf="i!==0">
+                      <div class="form-group col-md-1" *ngIf="i!==0">
+                            <label>&nbsp;</label>
+                            <div class="float-right">
+                                <input (click)="eliminarEjmJuguete(i)" type="button" class="form-control btn btn-danger" value="-">
+                            </div>
+                    </div>
+
+                      <!-- <div class="form-group col-md-12" *ngIf="i!==0">
                           <label>&nbsp;</label>
                           <input (click)="eliminarEjmJuguete(i)" type="button" class="form-control btn btn-danger" value="-">
-                      </div>
+                      </div> -->
                   </div>
 
               </div>
 
           </div>
 
-          <div class=" col-md-12">
+          <div class="col-md-12">
 
-              <div class="row">
+              <div class="row  m30">
 
                   <div class="form-group col-md-3 offset-md-9 ">
                       <label for="">&nbsp;</label>
-                      <button type="button" (click)="agregarEjmJuguete()" class="btn btn-success form-control">Agregar</button>
+                      <div class="float-right">
+                        <button type="button" (click)="agregarEjmJuguete()" class="btn btn-success form-control">+</button>
+                      </div>
                   </div>
 
               </div>
@@ -85,32 +94,35 @@
                           <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
                       </div>
 
-                      <div class="form-group" class="col-md-12">
-                          <label>Descripción de la corrida</label>
+
+                      <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
+                            <label>Descripción de la corrida</label>
                           <textarea class="form-control" rows="5" formControlName="descripcion"></textarea>
+                        </div>
+  
+                        <div class="form-group col-md-1" *ngIf="i!==0">
+                              <label>&nbsp;</label>
+                              <div class="float-right">
+                                <input (click)="eliminarEjmPromedio(i)" type="button" class="form-control btn btn-danger" value="-">
+                              </div>
                       </div>
 
-                      <div class="form-group col-md-12" *ngIf="i!==0">
-                          <label>&nbsp;</label>
-                          <input (click)="eliminarEjmPromedio(i)" type="button" class="form-control btn btn-danger" value="-">
-                      </div>
                   </div>
 
               </div>
 
           </div>
 
-          <div class=" col-md-12">
 
-              <div class="row">
+          <div class=" col-md-12 m30">
 
-                  <div class="form-group col-md-12 float-right ">
-                      <label>&nbsp;</label>
-                      <button type="button" (click)="agregarEjmPromedio()" class="btn btn-success form-control">Agregar</button>
-                  </div>
-
-              </div>
-          </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <div class="float-right">
+                            <button type="button" (click)="agregarEjmPromedio()" class="btn btn-success form-control">+</button>
+                        </div>
+                    </div>
+            </div>
 
           <p>Corrida de Complejo</p>
 
@@ -140,28 +152,34 @@
                           <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
                       </div>
 
-                      <div class="form-group" class="col-md-12">
-                          <label>Descripción de la corrida</label>
-                          <textarea class="form-control" rows="5" formControlName="descripcion"></textarea>
+                      <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
+                            <label>Descripción de la corrida</label>
+                            <textarea class="form-control" rows="5" formControlName="descripcion"></textarea>
+                        </div>
+  
+                        <div class="form-group col-md-1" *ngIf="i!==0">
+                              <label>&nbsp;</label>
+                              <div class="float-right">
+                                <input (click)="eliminarEjmComplejo(i)" type="button" class="form-control btn btn-danger" value="-">
+                              </div>
                       </div>
 
-                      <div class="form-group col-md-12" *ngIf="i!==0">
-                          <label>&nbsp;</label>
-                          <input (click)="eliminarEjmComplejo(i)" type="button" class="form-control btn btn-danger" value="-">
-                      </div>
                   </div>
 
               </div>
 
           </div>
 
-          <div class=" col-md-12">
+          <div class=" col-md-12 m30">
 
               <div class="row">
 
                   <div class="form-group col-md-12 float-right ">
                       <label>&nbsp;</label>
-                      <button type="button" (click)="agregarEjmComplejo()" class="btn btn-success form-control">Agregar</button>
+                      <div class="float-right">
+                        <button type="button" (click)="agregarEjmComplejo()" class="btn btn-success form-control">+</button>
+                      </div>                      
+                      
                   </div>
 
               </div>

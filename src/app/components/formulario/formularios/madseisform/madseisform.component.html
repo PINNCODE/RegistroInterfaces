@@ -40,20 +40,24 @@
                           <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
                       </div>
 
-                      <div class="form-group col-md-12">
-                        <label for="salida">URL
-                                <i class="far fa-question-circle" 
-                                data-toggle="popover" 
-                                title="Ingresa la URL del componente padre">
-                                </i>
-                        </label>
-                        <input type="text" class="form-control" name="correo" placeholder="URL" formControlName="url">
-                      </div>
 
-                      <div class="form-group col-md-12" *ngIf="i!==0">
-                          <label>&nbsp;</label>
-                          <input (click)="eliminarcompExternos(i)" type="button" class="form-control btn btn-danger" value="-">
-                      </div>
+                      <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
+                            <label for="salida">URL
+                                    <i class="far fa-question-circle" 
+                                    data-toggle="popover" 
+                                    title="Ingresa la URL del componente padre">
+                                    </i>
+                            </label>
+                            <input type="text" class="form-control" name="correo" placeholder="URL" formControlName="url">
+                        </div>
+
+                        <div class="form-group col-md-1" *ngIf="i!==0">
+                                <label>&nbsp;</label>
+                                <div class="float-right">
+                                    <input (click)="eliminarcompExternos(i)" type="button" class="form-control btn btn-danger" value="-">
+                                </div>
+                        </div>
+
                   </div>
 
               </div>
@@ -66,7 +70,10 @@
 
                   <div class="form-group col-md-12 float-right ">
                       <label for="">&nbsp;</label>
-                      <button type="button" (click)="agregarcompExternos()" class="btn btn-success form-control">Agregar</button>
+                      <div class="float-right">
+                            <button type="button" (click)="agregarcompExternos()" class="btn btn-success form-control">+</button>
+                    </div>
+                      
                   </div>
 
               </div>

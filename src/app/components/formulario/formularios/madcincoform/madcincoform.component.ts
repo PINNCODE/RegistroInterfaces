@@ -51,4 +51,8 @@ export class MadcincoformComponent{
     (<FormArray>this._DataJson.formCinco.controls['compPropio']).removeAt(idx);
   }
 
+  getControlsFromPropio() {
+    return (<FormArray>this._DataJson.formCinco.get('compPropio')).controls;
+  }
+
 }

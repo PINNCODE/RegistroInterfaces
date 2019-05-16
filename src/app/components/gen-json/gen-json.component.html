@@ -1,19 +1,190 @@
 <div class="main-container row">
   <div class="col-md-8">
     <p>Generar archivo JSON con los siguientes niveles de madurez completos</p>
-    <!-- <ul class="list-group">
-      <li class="list-group-item active">Niveles completos</li>
-      <li class="list-group-item" *ngFor="let item of arrOk">{{item}}</li>
-    </ul> -->
+    <hr>
+
+    <div class="accordion" id="accordionExample">
+      
+        <div class="card" *ngIf="formCeroVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelCero" aria-expanded="true" aria-controls="nivelCero">
+                Ver nivel 0
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelCero" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formCero.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formUnoVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelUno" aria-expanded="true" aria-controls="nivelUno">
+                Ver nivel 1
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelUno" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formUno.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formDosVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelDos" aria-expanded="true" aria-controls="nivelDos">
+                Ver nivel 2
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelDos" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formDos.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formTresVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelTres" aria-expanded="true" aria-controls="nivelTres">
+                Ver nivel 3
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelTres" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formTres.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formCuatroVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelCuatro" aria-expanded="true" aria-controls="nivelCuatro">
+                Ver nivel 4
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelCuatro" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formCuatro.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formCincoVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelCinco" aria-expanded="true" aria-controls="nivelCinco">
+                Ver nivel 5
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelCinco" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formCinco.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formSeisVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelSeis" aria-expanded="true" aria-controls="nivelSeis">
+                Ver nivel 6
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelSeis" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formSeis.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formSieteVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelSiete" aria-expanded="true" aria-controls="nivelSiete">
+                Ver nivel 7
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelSiete" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formSiete.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" *ngIf="formOchoVal">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#nivelOcho" aria-expanded="true" aria-controls="nivelOcho">
+                Ver nivel 8
+              </button>
+            </h2>
+          </div>
+      
+          <div id="nivelOcho" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <pre>
+                  {{_DataJson.formOcho.value|json}}
+              </pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    
     <br>
-    <br>
-    <a (click)="_DataJson.generarJSON()" class="btn btn-block btn-success" title="Download JSON" [href]="_DataJson.downloadJsonHref" download="download.json">Generar JSON</a>
+   
   </div>
 
   <div class="col-md-4 ">
-      <pre class="sticky-top ">
+          <div class="form-group">
+            <label>Nombre del archivo</label>
+            <input type="text" class="form-control"  placeholder="Nombre del carnet" [(ngModel)]="nombre">
+            <small class="form-text text-muted">El nombre sugerido: <b>{{ nombre }}</b>.</small>
+          </div>
+          <div class="float-right">
+              <a (click)="_DataJson.generarJSON()" class="btn btn-block btn-outline-success" title="Download JSON" [href]="_DataJson.downloadJsonHref" download="{{nombre}}.json">Generar Carnet</a>
+          </div>
+      <!-- <pre class="sticky-top ">
 
           {{_DataJson.dataForm.value|json}}
                     
-      </pre>
+      </pre> -->
   </div>

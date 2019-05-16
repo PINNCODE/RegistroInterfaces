@@ -13,6 +13,7 @@ export class LoadJsonComponent {
   data: any;
   error: boolean = false;
   FormGroup = FormGroup;
+  vistaPrevia: boolean = false;
 
   formGroup = this.fb.group({
     file: [null, Validators.required]
