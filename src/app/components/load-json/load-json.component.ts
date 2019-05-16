@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { DataJsonService } from '../../services/data-json.service';
 
 @Component({
   selector: 'app-load-json',
@@ -12,6 +13,7 @@ export class LoadJsonComponent {
   archivo?: File;
   data: any;
   error: boolean = false;
+  dataVal: boolean = false;
   FormGroup = FormGroup;
   vistaPrevia: boolean = false;
 
@@ -22,7 +24,8 @@ export class LoadJsonComponent {
   constructor(
     private fb:FormBuilder, 
     private cd: ChangeDetectorRef,
-    private http:HttpClient
+    private http:HttpClient,
+    public _DataJson: DataJsonService
     ) {
   }
 
@@ -49,7 +52,7 @@ export class LoadJsonComponent {
           this.http.get(this.formGroup.controls['file'].value).subscribe(
            data => {
              this.data = data;
-             console.log(data)
+             this.dataVal = true;
            }
          );
   
@@ -60,6 +63,7 @@ export class LoadJsonComponent {
       }
     }else{
       this.error = true;
+      this.dataVal = false;
     }
     
   }

@@ -15,14 +15,13 @@
             <div *ngIf="error" class="alert alert-danger" role="alert">
               El formato del archivo no es soportado
             </div>
-            <div *ngIf="error">
+            <div *ngIf="dataVal">
               <button type="submit" class="btn btn-block btn-primary">Cargar archivo</button>
             </div>
-            
           </form>
       </div>
       <div class="col-3"></div>
-      <div class="col-md-12 bg-light">
+      <div class="col-md-12 bg-light" *ngIf="dataVal">
         <br>
         <h3 class="text-center">Vista previa</h3>
         <hr>
@@ -30,6 +29,10 @@
           {{ data | json }}
         </pre>
       </div>
+      <div class="col-md-12">
+          <h3 class="genwik-font text-center"  (click)="_DataJson.initApp()"><i class="fas fa-home"></i></h3>
+      </div>
+
     </div>
 
 </div>

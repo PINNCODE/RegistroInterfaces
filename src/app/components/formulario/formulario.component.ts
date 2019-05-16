@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataJsonService } from '../../services/data-json.service';
 
 @Component({
   selector: 'app-formulario',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _DataJson: DataJsonService) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { DataJsonService } from '../../services/data-json.service';
 
 @Component({
   selector: 'app-guia',
@@ -8,9 +9,13 @@ import { FormGroup, FormArray, FormControl, Validators, FormBuilder } from '@ang
 })
 export class GuiaComponent {
 
-  exm : FormGroup
+  exm : FormGroup;
+  verInicio: boolean;
+  verCarnet: boolean;
+  verTutorial: boolean;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,public _DataJson: DataJsonService) {
+    this.verInicio = true;
     if ( this.exm === undefined) {
       this.exm = this.fb.group({
         'historico': this.fb.array([])
@@ -45,6 +50,30 @@ export class GuiaComponent {
 
   getControlsFromExp() {
     return (<FormArray>this.exm.get('historico')).controls;
+  }
+
+  ver(idx:string){
+    console.log(idx);
+    
+    switch(idx){
+      case 'inicio':
+        this.verCarnet = false;
+        this.verTutorial = false;
+        this.verInicio = true;
+      break;
+      case 'carnet':
+        this.verInicio = false;
+        this.verTutorial = false;
+        this.verCarnet = true;
+        console.log(this.verCarnet);
+        
+      break;
+      case 'tutorial':
+        this.verInicio = false;
+        this.verCarnet = false;
+      break;
+
+    }
   }
 
 }

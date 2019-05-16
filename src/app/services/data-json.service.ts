@@ -46,4 +46,10 @@ export class DataJsonService {
     this.downloadJsonHref = uri;
   }
 
+  initApp(){
+    this.init = false;
+    this.load = false;
+    this.guia = false;
+  }
+
 }

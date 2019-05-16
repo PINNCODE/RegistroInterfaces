@@ -11,6 +11,7 @@ import { MadsieteformComponent } from './components/formulario/formularios/madsi
 import { MadochoformComponent } from './components/formulario/formularios/madochoform/madochoform.component';
 import { GenJsonComponent } from './components/gen-json/gen-json.component';
 import { GuiaComponent } from './components/guia/guia.component';
+import { AppComponent } from './app.component';
 
 const APP_ROUTES: Routes = [
   { path: 'nivelCero', component: MadceroformComponent },
@@ -24,6 +25,7 @@ const APP_ROUTES: Routes = [
   { path: 'nivelOcho', component: MadochoformComponent },
   { path: 'genJson', component: GenJsonComponent },
   { path: 'guia', component: GuiaComponent },
+  { path: 'inicio', component: AppComponent },
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
