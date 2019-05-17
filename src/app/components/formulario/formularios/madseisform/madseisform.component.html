@@ -1,4 +1,56 @@
 <div class="main-container row">
+
+        <div class="col-md-12">
+
+                <h3 class="genwik-font">Nivel de madurez 6 <small class="text-success"><i data-toggle="modal" data-target="#NivelSeis" class="fas fa-info-circle"></i></small></h3>
+                
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="NivelSeis" tabindex="-1" role="dialog" aria-labelledby="NivelSeisLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title genwik-font" id="NivelSeisLabel">Nivel de madurez 6</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                             <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Idea</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Exposición</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                    6
+                                    </td>
+                                    <td>
+                                    ¿Tienes <b>descrito el rehúso</b> de tu componente <b>de al menos tres desarrolladores diferentes</b>?
+                                    </td>
+                                    <td>
+                                    ¿<b>Es robusto el código ante el reúso</b> en tres proyectos <b>externos</b>?
+                                    </td>
+                                    <td>
+                                    ¿El componente <b>funciona correctamente en al menos dos desarrollos externos</b>?
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        
+            </div>
+
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formSeis">
 
@@ -10,7 +62,7 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-12">
                           <label for="nombreAutor">Nombre componente
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
@@ -20,21 +72,22 @@
                           <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre componente" formControlName="nombre">
                       </div>
 
-                      <div class="form-group col-md-6">
-                          <label for="salida">
+                      <div class="form-group col-md-12">
+                          <label>
+                                Referencia
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Referencia del componente">
                                 </i>
                           </label>
-                          <input type="text" class="form-control" name="correo" placeholder="Referencia" formControlName="referencia">
+                          <textarea rows="5" class="form-control"  formControlName="referencia"></textarea>
                       </div>
 
                       <div class="form-group" class="col-md-12">
                           <label for="aportacion">¿Cómo se utilizo?
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
-                                title="Función que empeña el componente padre en tú componente">
+                                title="¿Cómo se utilizo el componente en un componente externo?">
                                 </i>
                           </label>
                           <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
@@ -42,7 +95,7 @@
 
 
                       <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
-                            <label for="salida">URL
+                            <label >URL
                                     <i class="far fa-question-circle" 
                                     data-toggle="popover" 
                                     title="Ingresa la URL del componente padre">

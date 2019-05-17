@@ -83,12 +83,11 @@ export class LoadJsonComponent {
       this.data.nivelOcho !== undefined 
       ) {
         this.dataVal = true;
-
+        this.estVal = false;
         this.initCero();
 
         console.log(this.data);
     }else{
-      console.log('no naishu :c');
       this.dataVal = false;
       this.estVal = true;
     }

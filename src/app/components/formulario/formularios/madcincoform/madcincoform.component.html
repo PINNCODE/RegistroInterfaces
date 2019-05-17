@@ -1,4 +1,56 @@
 <div class="main-container row">
+
+        <div class="col-md-12">
+
+                <h3 class="genwik-font">Nivel de madurez 5 <small class="text-success"><i data-toggle="modal" data-target="#NivelCinco" class="fas fa-info-circle"></i></small></h3>
+                
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="NivelCinco" tabindex="-1" role="dialog" aria-labelledby="NivelCincoLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title genwik-font" id="NivelCincoLabel">Nivel de madurez 5</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                             <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Idea</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Exposición</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                    5
+                                    </td>
+                                    <td>
+                                    ¿Tienes descrito el <b>reúso de tu componente</b> en al menos tres proyectos propios?
+                                    </td>
+                                    <td>
+                                    ¿<b>Es robusto el código ante el reúso</b> en al menos tres proyectos <b>propios</b>?
+                                    </td>
+                                    <td>
+                                    ¿El componente <b>funciona correctamente en al menos tres proyectos</b> propios? 
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        
+            </div>
+
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formCinco">
 
@@ -10,7 +62,7 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-12">
                           <label for="nombreAutor">Nombre componente
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
@@ -20,13 +72,13 @@
                           <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre componente" formControlName="nombre">
                       </div>
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-12">
                           <label for="salida">Referencia</label>
                           <i class="far fa-question-circle" 
                           data-toggle="popover" 
                           title="Referencia del componente">
                           </i>    
-                          <input type="text" class="form-control" name="correo" placeholder="Referencia" formControlName="referencia">
+                          <textarea rows="5" class="form-control" formControlName="referencia"></textarea>
                       </div>
 
                       <div class="form-group" class="col-md-12">

@@ -1,4 +1,56 @@
 <div class="main-container row">
+
+        <div class="col-md-12">
+
+                <h3 class="genwik-font">Nivel de madurez 8 <small class="text-success"><i data-toggle="modal" data-target="#NivelOcho" class="fas fa-info-circle"></i></small></h3>
+                
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="NivelOcho" tabindex="-1" role="dialog" aria-labelledby="NivelOchoLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title genwik-font" id="NivelOchoLabel">Nivel de madurez 8</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                             <table class="table">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">Nivel</th>
+                                    <th scope="col">Idea</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Exposición</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                    6
+                                    </td>
+                                    <td>
+                                    ¿Tienes <b>descrito el rehúso</b> de tu componente <b>de al menos tres desarrolladores diferentes</b>?
+                                    </td>
+                                    <td>
+                                    ¿<b>Es robusto el código ante el reúso</b> en tres proyectos <b>externos</b>?
+                                    </td>
+                                    <td>
+                                    ¿El componente <b>funciona correctamente en al menos dos desarrollos externos</b>?
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        
+            </div>
+
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formOcho">
 
@@ -17,7 +69,7 @@
                                 title="Referencia del articulo">
                                 </i>
                           </label>
-                          <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="referencia">
+                          <textarea class="form-control" rows="5" formControlName="referencia"></textarea>
                       </div>
 
                       <div class="form-group" class="col-md-12">
@@ -27,7 +79,7 @@
                                 title="¿Qué información se extrajo de este articulo?">
                                 </i>
                           </label>
-                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
+                          <textarea class="form-control" rows="5" formControlName="funcion"></textarea>
                       </div>
 
                       <div class="form-group col-md-12">
@@ -36,7 +88,6 @@
 
                       <div class="form-group col-md-12" *ngIf="i!==0">
                           <label>&nbsp;</label>
-                          
                       </div>
 
                       <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">

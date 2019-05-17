@@ -1,4 +1,56 @@
 <div class="main-container row">
+
+    <div class="col-md-12">
+
+        <h3 class="genwik-font">Nivel de madurez 4 <small class="text-success"><i data-toggle="modal" data-target="#NivelCuatro" class="fas fa-info-circle"></i></small></h3>
+        
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" id="NivelCuatro" tabindex="-1" role="dialog" aria-labelledby="NivelCuatroLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title genwik-font" id="NivelCuatroLabel">Nivel de madurez 4</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                     <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                <td>
+                                  4
+                                </td>
+                                <td>
+                                  ¿Se generó una <b>nueva solución (es solución padre de otras)</b> del componente? (* opcional)
+                                </td>
+                                <td>
+                                  ¿<b>Se ha reutilizado código en otro componente</b>?
+                                </td>
+                                <td>
+                                  ¿<b>El componente nuevo no presenta fallas en el código</b>? 
+                                </td>
+                              </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formCuatro">
 
@@ -10,7 +62,7 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-12">
                           <label for="nombreAutor">Nombre componente
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
@@ -20,14 +72,14 @@
                           <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre componente" formControlName="nombre">
                       </div>
 
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-md-12">
                           <label for="salida">Referencia
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Referencia del componente">
                                 </i>
                           </label>
-                          <input type="text" class="form-control" name="correo" placeholder="Referencia" formControlName="referencia">
+                          <textarea rows="5" class="form-control" formControlName="referencia"></textarea>
                       </div>
 
                       <div class="form-group" class="col-md-12">
@@ -37,7 +89,7 @@
                                 title="Función que empeña el componente padre en tú componente">
                                 </i>
                           </label>
-                          <textarea class="form-control" id="ejemplos" rows="5" formControlName="funcion"></textarea>
+                          <textarea class="form-control" rows="5" formControlName="funcion"></textarea>
                       </div>
 
                       <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
@@ -84,7 +136,7 @@
                   <hr>
                   <div class="row">
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="nombreAutor">Nombre componente
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
@@ -94,14 +146,14 @@
                         <input type="text" class="form-control" name="nombreAutor" placeholder="Nombre Autor" formControlName="nombre">
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-12">
                         <label for="salida">Referencia
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Referencia del componente">
                                 </i>
                         </label>
-                        <input type="text" class="form-control" name="correo" placeholder="Nombre Componente" formControlName="referencia">
+                        <textarea rows="5" class="form-control" formControlName="referencia"></textarea>
                     </div>
 
                     <div class="form-group" class="col-md-12">

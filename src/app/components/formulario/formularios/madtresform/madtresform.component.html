@@ -1,4 +1,56 @@
 <div class="main-container row">
+
+    <div class="col-md-12">
+
+        <h3 class="genwik-font">Nivel de madurez 3 <small class="text-success"><i data-toggle="modal" data-target="#NivelTres" class="fas fa-info-circle"></i></small></h3>
+        
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" id="NivelTres" tabindex="-1" role="dialog" aria-labelledby="NivelTresLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title genwik-font" id="NivelTresLabel">Nivel de madurez 3</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                     <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                <td>
+                                  3
+                                </td>
+                                <td>
+                                  ¿Tienes descritos los <b>requerimientos NO funcionales</b> y cómo los has mejorado?  (análisis de complejidad)
+                                </td>
+                                <td>
+                                  ¿<b>Se han agregado procesos</b> paralelizables, parámetros de E.S. o estructuras de datos <b>para cumplir los requerimientos no funcionales</b>?
+                                </td>
+                                <td>
+                                  ¿<b>Cumple el rendimiento con los requerimientos no funcionales</b>?
+                                </td>
+                              </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formTres">
 

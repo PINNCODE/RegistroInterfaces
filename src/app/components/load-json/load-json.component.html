@@ -18,22 +18,51 @@
             <div *ngIf="estVal" class="alert alert-danger" role="alert">
               El archivo no contiene una estructura correcta
             </div>
-            <div *ngIf="dataVal">
-              <button class="btn btn-block btn-primary" (click)="validarCamposArchivo()">Cargar archivo</button>
-            </div>
           </form>
-          <button (click)="validarCamposArchivo()">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</button>
       </div>
       <div class="col-3"></div>
-      <div class="col-md-12 bg-light" *ngIf="dataVal">
-        <br>
-        <h3 class="text-center">Vista previa</h3>
-        <hr>
-        <pre>
-          {{ data | json }}
-        </pre>
+      <div class="col-3"></div>
+      <div class="col-md-6 m30" *ngIf="dataVal">
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-block btn-outline-info" data-toggle="modal" data-target="#exampleModalCenter">
+          Ver datos
+      </button>
+
+      <button class="btn btn-block btn-outline-success" (click)="validarCamposArchivo()">Cargar archivo</button>
+
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+              <br>
+              <h3 class="text-center">Vista previa</h3>
+              <hr>
+              <pre>
+                {{ data | json }}
+              </pre>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="col-md-12">
+      <div class="col-3"></div>
+
+      <div class="col-md-12 m30">
           <h3 class="genwik-font text-center"  (click)="_DataJson.initApp()"><i class="fas fa-home"></i></h3>
       </div>
 

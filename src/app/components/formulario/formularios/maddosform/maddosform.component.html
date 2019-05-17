@@ -1,4 +1,57 @@
 <div class="main-container row">
+
+    <div class="col-md-12">
+
+        <h3 class="genwik-font">Nivel de madurez 2 <small class="text-success"><i data-toggle="modal" data-target="#NivelDos" class="fas fa-info-circle"></i></small></h3>
+        
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" id="NivelDos" tabindex="-1" role="dialog" aria-labelledby="NivelDosLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title genwik-font" id="NivelDosLabel">Nivel de madurez 2</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                     <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Idea</th>
+                            <th scope="col">Código</th>
+                            <th scope="col">Exposición</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                              <tr>
+                                <td>
+                                  2
+                                </td>
+                                  <td>
+                                    ¿Están definidas las <b>pruebas unitarias a nivel de idea</b>, juguete, promedio y complejas?
+                                  </td>
+                                  <td>
+                                    <b>¿Hay estructuras que soportan las pruebas unitarias</b>, juguete, promedio <b>y complejas</b>?
+                                  </td>
+                                  <td>
+                                    ¿<b>Pasaste todas las pruebas unitarias</b>?  
+                                  </td>
+                                </tr>                       
+                              <tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    
   <div class="col-md-8">
       <form [formGroup]="_DataJson.formDos">
 
@@ -10,24 +63,24 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-8">
+                      <div class="form-group col-md-6">
                           <label>Entrada
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
+                          <textarea class="form-control" formControlName="entrada"></textarea>
                       </div>
 
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-6">
                           <label >Salida
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Describir la salida">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control"placeholder="Salida" formControlName="salida">
+                          <textarea class="form-control" formControlName="salida"></textarea>
                       </div>
 
                       <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
@@ -74,24 +127,24 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-8">
+                      <div class="form-group col-md-6">
                           <label>Entrada
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
+                          <textarea class="form-control" formControlName="entrada"></textarea>
                       </div>
 
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-6">
                           <label >Salida
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Describir la salida">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
+                          <textarea class="form-control" formControlName="salida"></textarea>
                       </div>
 
 
@@ -132,24 +185,24 @@
                   <hr>
                   <div class="row">
 
-                      <div class="form-group col-md-8">
+                      <div class="form-group col-md-6">
                           <label >Entrada
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Ingresar los parametros con su valor (sintaxis) o describir la entrada">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control" placeholder="Valor de entrada" formControlName="entrada">
+                          <textarea class="form-control" formControlName="entrada"></textarea>
                       </div>
 
-                      <div class="form-group col-md-4">
+                      <div class="form-group col-md-6">
                           <label>Salida
                                 <i class="far fa-question-circle" 
                                 data-toggle="popover" 
                                 title="Describir la salida">
                                 </i>  
                           </label>
-                          <input type="text" class="form-control" placeholder="Salida" formControlName="salida">
+                          <textarea class="form-control" formControlName="salida"></textarea>
                       </div>
 
                       <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
