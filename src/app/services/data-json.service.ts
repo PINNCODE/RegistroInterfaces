@@ -52,4 +52,10 @@ export class DataJsonService {
     this.guia = false;
   }
 
+  initForm(){
+    this.init = true;
+    this.load = false;
+    this.guia = false;
+  }
+
 }

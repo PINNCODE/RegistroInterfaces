@@ -11,6 +11,7 @@ import { DataJsonService } from '../../services/data-json.service';
 export class LoadJsonComponent {
 
   archivo?: File;
+  nombreArchivo = "Buscar archivo";
   data: any;
   error: boolean = false;
   dataVal: boolean = false;
@@ -53,7 +54,8 @@ export class LoadJsonComponent {
           this.http.get(this.formGroup.controls['file'].value).subscribe(
            data => {
             this.data = data;
-             this.validarCamposArchivo(data)
+            this.nombreArchivo = this.archivo.name;
+            this.validarCamposArchivo(data)
            }
          );
   
@@ -85,8 +87,15 @@ export class LoadJsonComponent {
         this.dataVal = true;
         this.estVal = false;
         this.initCero();
-
-        console.log(this.data);
+        this.initUno();
+        this.initDos();
+        this.initTres();
+        this.initCuatro();
+        this.initCinco();
+        this.initSeis();
+        this.initSiete();
+        this.initOcho();
+        // console.log(this.data);
     }else{
       this.dataVal = false;
       this.estVal = true;
@@ -165,8 +174,279 @@ export class LoadJsonComponent {
           })
         )
       });
+
+      this._DataJson.dataForm.controls['nivelCero'].setValue(this._DataJson.formCero.value);
   
     }
+  }
+
+  initUno(){
+    if (this._DataJson.formUno === undefined) {
+      
+      this._DataJson.formUno = this.fb.group({
+        'descSolucion': new FormControl(this.data.nivelUno.descSolucion,[
+          Validators.required
+        ]),
+        'ejemplos': this.fb.array([])
+      })
+
+      this.data.nivelUno.ejemplos.forEach(element => {
+      (<FormArray>this._DataJson.formUno.controls['ejemplos']).push(
+        new FormControl(element, Validators.required)
+      )
+      });
+
+      this._DataJson.dataForm.controls['nivelUno'].setValue(this._DataJson.formUno.value);
+    }
+  }
+
+  initDos(){
+    if (this._DataJson.formDos === undefined) {
+      this._DataJson.formDos = this.fb.group({
+        'ejemJuguete': this.fb.array([]),
+        'ejemPromedio': this.fb.array([]),
+        'ejemComplejo': this.fb.array([]),
+      })
+
+      this.data.nivelDos.ejemJuguete.forEach(element => {
+        (<FormArray>this._DataJson.formDos.controls['ejemJuguete']).push(
+          this.fb.group({
+            entrada: new FormControl(element.entrada, [
+              Validators.required
+            ]),
+            salida: new FormControl(element.salida,[
+              Validators.required
+            ]),
+            descripcion: new FormControl(element.descripcion,[
+              Validators.required
+            ]),
+          })
+        )
+      });
+
+      this.data.nivelDos.ejemPromedio.forEach(element => {
+        (<FormArray>this._DataJson.formDos.controls['ejemPromedio']).push(
+          this.fb.group({
+            entrada: new FormControl(element.entrada, [
+              Validators.required
+            ]),
+            salida: new FormControl(element.salida,[
+              Validators.required
+            ]),
+            descripcion: new FormControl(element.descripcion,[
+              Validators.required
+            ]),
+          })
+        )
+      });
+
+      this.data.nivelDos.ejemComplejo.forEach(element => {
+        (<FormArray>this._DataJson.formDos.controls['ejemComplejo']).push(
+          this.fb.group({
+            entrada: new FormControl(element.entrada, [
+              Validators.required
+            ]),
+            salida: new FormControl(element.salida,[
+              Validators.required
+            ]),
+            descripcion: new FormControl(element.descripcion,[
+              Validators.required
+            ]),
+          })
+        )
+      });
+
+      this._DataJson.dataForm.controls['nivelDos'].setValue(this._DataJson.formDos.value);
+    }
+  }
+
+  initTres(){
+
+    if (this._DataJson.formTres === undefined) {
+      this._DataJson.formTres = this.fb.group({
+        'descCasoComplejo': this.fb.array([])
+      })
+
+      this.data.nivelTres.descCasoComplejo.forEach(element => {
+        (<FormArray>this._DataJson.formTres.controls['descCasoComplejo']).push(
+          this.fb.group({
+            descripcion: new FormControl(element.descripcion,[
+              Validators.required
+            ]),
+          })
+        )
+      });
+
+      this._DataJson.dataForm.controls['nivelTres'].setValue(this._DataJson.formTres.value);
+      
+    }
+
+  }
+
+  initCuatro(){
+
+    if (this._DataJson.formCuatro === undefined) {
+      this._DataJson.formCuatro = this.fb.group({
+        'compPadre': this.fb.array([]),
+        'compHijo': this.fb.array([]),
+      })
+
+      this.data.nivelCuatro.compPadre.forEach(element => {
+        (<FormArray>this._DataJson.formCuatro.controls['compPadre']).push(
+          this.fb.group({
+            nombre: new FormControl(element.nombre, [
+              Validators.required
+            ]),
+            funcion: new FormControl(element.funcion,[
+              Validators.required
+            ]),
+            referencia: new FormControl(element.referencia,[
+              Validators.required
+            ]),
+            url: new FormControl(element.url,[
+              Validators.required
+            ])
+          })
+        )
+      });
+
+      this.data.nivelCuatro.compPadre.forEach(element => {
+        (<FormArray>this._DataJson.formCuatro.controls['compHijo']).push(
+          this.fb.group({
+            nombre: new FormControl(element.nombre, [
+              Validators.required
+            ]),
+            funcion: new FormControl(element.funcion,[
+              Validators.required
+            ]),
+            referencia: new FormControl(element.referencia,[
+              Validators.required
+            ]),
+            url: new FormControl(element.url,[
+              Validators.required
+            ])
+          })
+        )
+      });
+
+      this._DataJson.dataForm.controls['nivelCuatro'].setValue(this._DataJson.formCuatro.value);
+  
+    }
+
+  }
+
+  initCinco(){
+    if ( this._DataJson.formCinco === undefined) {
+      this._DataJson.formCinco = this.fb.group({
+        compPropio: this.fb.array([])
+      })
+
+      this.data.nivelCinco.compPropio.forEach(element => {
+        (<FormArray>this._DataJson.formCinco.controls['compPropio']).push(
+          this.fb.group({
+            nombre: new FormControl(element.nombre, [
+              Validators.required
+            ]),
+            funcion: new FormControl(element.funcion,[
+              Validators.required
+            ]),
+            referencia: new FormControl(element.referencia,[
+              Validators.required
+            ]),
+            url: new FormControl(element.url,[
+              Validators.required
+            ])
+          })
+        )
+      });
+
+      this._DataJson.dataForm.controls['nivelCinco'].setValue(this._DataJson.formCinco.value);
+      
+    }
+  }
+
+  initSeis(){
+    if ( this._DataJson.formSeis === undefined) {
+      this._DataJson.formSeis = this.fb.group({
+        compExternos: this.fb.array([])
+      })
+
+      this.data.nivelSeis.compExternos.forEach(element => {
+        (<FormArray>this._DataJson.formSeis.controls['compExternos']).push(
+          this.fb.group({
+            nombre: new FormControl(element.nombre, [
+              Validators.required
+            ]),
+            funcion: new FormControl(element.funcion,[
+              Validators.required
+            ]),
+            referencia: new FormControl(element.referencia,[
+              Validators.required
+            ]),
+            url: new FormControl(element.url,[
+              Validators.required
+            ])
+          })
+        )
+      });
+
+      this._DataJson.dataForm.controls['nivelSeis'].setValue(this._DataJson.formSeis.value);
+    }
+  }
+
+  initSiete(){
+    if ( this._DataJson.formSiete === undefined) {
+      this._DataJson.formSiete = this.fb.group({
+        'historico': this.fb.array([])
+      })
+  
+      this.data.nivelSiete.historico.forEach(element => {
+      (<FormArray>this._DataJson.formSiete.controls['historico']).push(
+        this.fb.group({
+          tipo: new FormControl(element.tipo, [
+            Validators.required
+          ]),
+          titulo: new FormControl(element.titulo,[
+            Validators.required
+          ]),
+          funcion: new FormControl(element.funcion,[
+            Validators.required
+          ]),
+          fecha: new FormControl(element.fecha,[
+            Validators.required
+          ])
+        })
+      )
+    });
+    this._DataJson.dataForm.controls['nivelSiete'].setValue(this._DataJson.formSiete.value);
+    }
+  }
+
+  initOcho(){
+
+    if ( this._DataJson.formOcho === undefined ) {
+      this._DataJson.formOcho = this.fb.group({
+        'exposicion': this.fb.array([])
+      })
+  
+      this.data.nivelOcho.exposicion.forEach(element => {
+        (<FormArray>this._DataJson.formOcho.controls['exposicion']).push(
+          this.fb.group({
+            referencia: new FormControl(element.referencia,[
+              Validators.required
+            ]),
+            funcion: new FormControl(element.funcion,[
+              Validators.required
+            ]),
+            url: new FormControl(element.url,[
+              Validators.required
+            ])
+          })
+        )
+      });
+      this._DataJson.dataForm.controls['nivelOcho'].setValue(this._DataJson.formOcho.value);
+    }
+
   }
 
 }
