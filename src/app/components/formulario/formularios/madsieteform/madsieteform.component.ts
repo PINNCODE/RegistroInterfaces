@@ -22,7 +22,7 @@ export class MadsieteformComponent {
     this._DataJson.formSiete.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataSiete'].setValue(this._DataJson.formSiete.value);
+        this._DataJson.dataForm.controls['nivelSiete'].setValue(this._DataJson.formSiete.value);
        }
       }
     )

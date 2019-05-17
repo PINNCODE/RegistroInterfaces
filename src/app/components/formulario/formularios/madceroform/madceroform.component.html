@@ -105,7 +105,7 @@
                                 title="Es importante complir con el siguiente patron example@dominio.com (.com.mx, .mx y cualquier otra extensións">
                                 </i>
                             </label>
-                            <input type="text" class="form-control" placeholder="Nombre Componente" formControlName="correoAutor">
+                            <input type="text" class="form-control" placeholder="Correo del autor" formControlName="correoAutor">
                         </div>
 
                         <div class="form-group" [ngClass]="{'col-md-4': i===0, 'col-md-3': i!==0}">
@@ -275,12 +275,19 @@
                             </label>
                             <select class="custom-select" formControlName="tipoparam">
                                 <option value="int">Entero</option>
+                                <option value="int">Cadena</option>
                                 <option value="float">Flotante</option>
                                 <option value="date">Fecha</option>
                                 <option value="rout">Ruta</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2" *ngIf="i!==0">
+
+                        <div class="form-group" [ngClass]="{'col-md-12': i===0, 'col-md-11': i!==0}">
+                            <label >Descripción de la corrida</label>
+                            <textarea class="form-control" rows="2" formControlName="descripcion"></textarea>
+                        </div>
+
+                        <div class="form-group col-md-1" *ngIf="i!==0">
                             <label>&nbsp;</label>
                             <input (click)="eliminarParametro(i)" type="button" class="form-control btn btn-danger" value="-">
                         </div>

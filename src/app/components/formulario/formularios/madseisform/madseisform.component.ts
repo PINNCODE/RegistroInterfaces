@@ -24,7 +24,7 @@ export class MadseisformComponent {
     this._DataJson.formSeis.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataSeis'].setValue(this._DataJson.formSeis.value);
+        this._DataJson.dataForm.controls['nivelSeis'].setValue(this._DataJson.formSeis.value);
        }
       }
     )

@@ -28,7 +28,7 @@ export class MadunoformComponent {
     this._DataJson.formUno.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataUno'].setValue(this._DataJson.formUno.value);
+        this._DataJson.dataForm.controls['nivelUno'].setValue(this._DataJson.formUno.value);
        }
       }
     )

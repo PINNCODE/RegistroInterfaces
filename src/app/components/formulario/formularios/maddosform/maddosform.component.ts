@@ -28,7 +28,7 @@ export class MaddosformComponent{
     this._DataJson.formDos.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataDos'].setValue(this._DataJson.formDos.value);
+        this._DataJson.dataForm.controls['nivelDos'].setValue(this._DataJson.formDos.value);
        }
       }
     )

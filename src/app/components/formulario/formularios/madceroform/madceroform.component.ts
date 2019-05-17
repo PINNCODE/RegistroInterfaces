@@ -81,7 +81,7 @@ export class MadceroformComponent {
     this._DataJson.formCero.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataCero'].setValue(this._DataJson.formCero.value);
+        this._DataJson.dataForm.controls['nivelCero'].setValue(this._DataJson.formCero.value);
        }
       }
     )
@@ -107,6 +107,9 @@ export class MadceroformComponent {
         tipoparam: new FormControl('',[
           Validators.required
         ]),
+        descripcion: new FormControl('',[
+          Validators.required
+        ])
       })
     )
   }

@@ -22,7 +22,7 @@ export class MadtresformComponent{
     this._DataJson.formTres.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataTres'].setValue(this._DataJson.formTres.value);
+        this._DataJson.dataForm.controls['nivelTres'].setValue(this._DataJson.formTres.value);
        }
       }
     )

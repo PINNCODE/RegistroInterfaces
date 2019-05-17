@@ -25,7 +25,7 @@ export class MadcuatroformComponent {
     this._DataJson.formCuatro.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataCuatro'].setValue(this._DataJson.formCuatro.value);
+        this._DataJson.dataForm.controls['nivelCuatro'].setValue(this._DataJson.formCuatro.value);
        }
       }
     )

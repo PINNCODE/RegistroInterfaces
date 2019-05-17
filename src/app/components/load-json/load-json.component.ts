@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl, FormArray } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { DataJsonService } from '../../services/data-json.service';
 
@@ -14,6 +14,7 @@ export class LoadJsonComponent {
   data: any;
   error: boolean = false;
   dataVal: boolean = false;
+  estVal: boolean = false;
   FormGroup = FormGroup;
   vistaPrevia: boolean = false;
 
@@ -25,7 +26,7 @@ export class LoadJsonComponent {
     private fb:FormBuilder, 
     private cd: ChangeDetectorRef,
     private http:HttpClient,
-    public _DataJson: DataJsonService
+    public _DataJson: DataJsonService,
     ) {
   }
 
@@ -51,8 +52,8 @@ export class LoadJsonComponent {
   
           this.http.get(this.formGroup.controls['file'].value).subscribe(
            data => {
-             this.data = data;
-             this.dataVal = true;
+            this.data = data;
+             this.validarCamposArchivo(data)
            }
          );
   
@@ -68,4 +69,107 @@ export class LoadJsonComponent {
     
   }
 
+  validarCamposArchivo(data:any) {
+
+    if ( 
+      this.data.nivelCero !== undefined && 
+      this.data.nivelUno !== undefined && 
+      this.data.nivelDos !== undefined && 
+      this.data.nivelTres !== undefined && 
+      this.data.nivelCuatro !== undefined && 
+      this.data.nivelCinco !== undefined && 
+      this.data.nivelSeis !== undefined && 
+      this.data.nivelSiete !== undefined && 
+      this.data.nivelOcho !== undefined 
+      ) {
+        this.dataVal = true;
+
+        this.initCero();
+
+        console.log(this.data);
+    }else{
+      console.log('no naishu :c');
+      this.dataVal = false;
+      this.estVal = true;
+    }
+    
+  }
+
+  initCero(){
+    if ( this._DataJson.formCero === undefined ) {
+      this._DataJson.formCero = this.fb.group({
+        'claveComponente': new FormControl(this.data.nivelCero.claveComponente,[
+          Validators.required
+        ]),
+        'nombreComponente': new FormControl(this.data.nivelCero.nombreComponente,[
+          Validators.required
+        ]),
+        'tipo': new FormControl(this.data.nivelCero.tipo,[
+          Validators.required
+        ]),
+        'clasACM': new FormControl(this.data.nivelCero.clasACM,[
+          Validators.required
+        ]),
+        'autores': this.fb.array([]),
+        'descProblema': new FormControl(this.data.nivelCero.descProblema, [
+          Validators.required
+        ]),
+        'reqFuncionales': new FormArray([
+  
+        ]),
+        'reqNoFuncionales': new FormArray([
+  
+        ]),
+        'aportacion': new FormControl(this.data.nivelCero.aportacion,[
+          Validators.required
+        ]),
+        'similitud': new FormControl(this.data.nivelCero.aportacion,[
+          Validators.required
+        ]),
+        'sintaxis': this.fb.array([]),
+      });
+
+      this.data.nivelCero.autores.forEach(element => {
+        (<FormArray>this._DataJson.formCero.controls['autores']).push(
+          this.fb.group({
+            nombreAutor: new FormControl(element.nombreAutor),
+            correoAutor: new FormControl(element.correoAutor),
+            aliasGitlab: new FormControl(element.aliasGitlab),
+          })
+        )
+      });
+
+      this.data.nivelCero.reqFuncionales.forEach(element => {
+        (<FormArray>this._DataJson.formCero.controls['reqFuncionales']).push(
+          new FormControl(element, Validators.required)
+        )
+      });
+
+      this.data.nivelCero.reqNoFuncionales.forEach(element => {
+        (<FormArray>this._DataJson.formCero.controls['reqNoFuncionales']).push(
+          new FormControl(element, Validators.required)
+        )
+      });
+
+      this.data.nivelCero.sintaxis.forEach(element => {
+        (<FormArray>this._DataJson.formCero.controls['sintaxis']).push(
+          this.fb.group({
+            param: new FormControl(element.param, [
+              Validators.required
+            ]),
+            tipoparam: new FormControl(element.tipoparam,[
+              Validators.required
+            ]),
+            descripcion: new FormControl(element.descripcion,[
+              Validators.required
+            ])
+          })
+        )
+      });
+  
+    }
+  }
+
 }
+
+

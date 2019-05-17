@@ -27,15 +27,15 @@ export class DataJsonService {
 
   constructor(private fb: FormBuilder, private sanitizer: DomSanitizer) { 
     this.dataForm = this.fb.group({
-      'dataCero': this.formCero,
-      'dataUno': this.formUno,
-      'dataDos': this.formDos,
-      'dataTres': this.formTres,
-      'dataCuatro': this.formCuatro,
-      'dataCinco': this.formCinco,
-      'dataSeis': this.formSeis,
-      'dataSiete': this.formSiete,
-      'dataOcho': this.formOcho
+      'nivelCero': this.formCero,
+      'nivelUno': this.formUno,
+      'nivelDos': this.formDos,
+      'nivelTres': this.formTres,
+      'nivelCuatro': this.formCuatro,
+      'nivelCinco': this.formCinco,
+      'nivelSeis': this.formSeis,
+      'nivelSiete': this.formSiete,
+      'nivelOcho': this.formOcho
     })
   }
 

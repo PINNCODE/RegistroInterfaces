@@ -21,7 +21,7 @@ export class MadcincoformComponent{
     this._DataJson.formCinco.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataCinco'].setValue(this._DataJson.formCinco.value);
+        this._DataJson.dataForm.controls['nivelCinco'].setValue(this._DataJson.formCinco.value);
        }
       }
     )

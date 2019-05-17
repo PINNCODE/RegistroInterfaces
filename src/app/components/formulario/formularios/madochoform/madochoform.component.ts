@@ -24,7 +24,7 @@ export class MadochoformComponent{
     this._DataJson.formOcho.statusChanges.subscribe(
       data => {
        if(data === 'VALID'){
-        this._DataJson.dataForm.controls['dataOcho'].setValue(this._DataJson.formOcho.value);
+        this._DataJson.dataForm.controls['nivelOcho'].setValue(this._DataJson.formOcho.value);
        }
       }
     )
