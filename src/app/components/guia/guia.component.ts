@@ -71,6 +71,7 @@ export class GuiaComponent {
       case 'tutorial':
         this.verInicio = false;
         this.verCarnet = false;
+        this.verTutorial = true;
       break;
 
     }

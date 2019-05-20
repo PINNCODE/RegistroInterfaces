@@ -21,7 +21,7 @@
               <a class="nav-link" (click)="ver('carnet')">Carnet</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" disabled>Tutorial</a>
+              <a class="nav-link" (click)="ver('tutorial')">Tutorial</a>
             </li>
           </ul>
     </div>
@@ -629,7 +629,146 @@
               
             </div>
         </div>
+        <!-- FIN CARNET -->
+        <!-- INICIO TUTORIAL -->
+        <div class="card m30" *ngIf="verTutorial">
+            <div class="card-body">
+              <h3 id="carnet">Tutorial</h3>
+              <hr>
+              <p class="text-justify">
+                El objetivo de GenWik es facilitar la generación del README carnet, ofreciendo al usuario una serie de formularios 
+                que abarcan los ocho niveles de madurez. <br> <br>
+                El llenado de estos formularios no tiene un orden secuencial, se llena de acuerdo a la información que el componente
+                a registrar cumpla, el único requisito para registrar un componente es que el nivel cero sea forzosamente registrado,
+                ya que este nivel es donde se describe tanto el problema que resuelve el componente, como entradas y salidas.
+                
+              </p>
 
+              <h3 class="m30">Estructura de formularios</h3>
+              <hr>
+
+              <figure class="figure">
+                <img src="../../../assets/imgs/estructuraForm.PNG" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption text-right">Estructura general de la imagen</figcaption>
+              </figure>
+
+              <h3 class="m30">Iconografía de interfaz</h3 >
+                <hr>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Icono</th>
+                      <th scope="col">Descripción </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><i class="fa fa-home" aria-hidden="true"></i></th>
+                      <td>Botón de inicio: Devuelve al usuario a la pantalla principal de GenWik.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="fa fa-info-circle text-success" aria-hidden="true"></i></th>
+                      <td>Icono de información: Muestra al usuario el contenido del índice de la tabla de madurez de acuerdo con su formulario. </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><i class="fa fa-question-circle" aria-hidden="true"></i></th>
+                      <td>
+                        Icono de ayuda: Al posicionar el cursor sobre el icono, se muestra una leyenda que guía al usuario en como debe llenar el campo
+                        sobre el que dicho icono está posicionado.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><img src="../../../assets/imgs/btnplus.PNG" class="img-fluid" alt="Responsive image"></th>
+                      <td>
+                          Añadir campos: Añade campos un grupo de campos al formulario, de acuerdo con su categoría.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><img src="../../../assets/imgs/btnDelete.PNG" class="img-fluid" alt="Responsive image"></th>
+                      <td>
+                          Eliminar campos: Elimina un grupo de campos, de acuerdo con su categoría. 
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              
+              <h3>Botón de Inicio <small><i class="fa fa-home" aria-hidden="true"></i></small></h3>
+              <hr>
+
+              <p>
+                Direcciona a la pagina principal de GenWik 
+              </p>
+
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/botonInicio.mp4" allowfullscreen></iframe>
+              </div>
+
+              <h3 class="m30">Barra de navegación </h3>
+              <hr>
+              <p class="text-justify">
+                  Ayuda al usuario a navegar entre los diferentes formularios de niveles de madurez. 
+              </p>
+
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/barraNavegacion.mp4" allowfullscreen></iframe>
+              </div>
+
+              <h3 class="m30">Formulario de nivel de madurez </h3>
+              <hr>
+              <p class="text-justify">
+                  Guía al usuario para completar la documentación de su componente y obtener niveles de madurez.
+              </p>
+
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/formulario.mp4" allowfullscreen></iframe>
+              </div>
+
+              <h3 class="m30">Vista previa </h3>
+              <hr>
+              <p class="text-justify">
+                  Muestra al usuario los cambios, estructura e información que tendrá dentro del archivo carnet en un formato .json
+              </p>
+
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/vistaPrevia.mp4" allowfullscreen></iframe>
+              </div>
+
+              <h3 class="m30">Generar carnet</h3>
+              <hr>
+              <p class="text-justify">
+                  En la pestaña Generar carnet nos muestra los formularios que se han completado satisfactoriamente, 
+                  generando un archivo con la información de estos y los niveles de madurez que aun no se han completado, esto para poder realizar a futuro su edición. 
+              </p>
+
+              <p class="text-center"><b>Formularios validos</b></p>
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/nivelesCompletos.mp4" allowfullscreen></iframe>
+              </div>
+              <p class="text-center"><b>Generación de carnet</b></p>
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/generarCarnet.mp4" allowfullscreen></iframe>
+              </div>
+
+              <h3 class="m30">Editar carnet</h3>
+              <hr>
+              <p class="text-justify">
+                  Editar el carnet es fácil, solo hay que presionar el botón de Editar, seleccionar el archivo que deseamos editar y presionar cargar información.
+                   Existe la opción de visualizar la información antes de cargarla.
+              </p>
+
+              <p class="text-center"><b>Ver datos</b></p>
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/verDatos.mp4" allowfullscreen></iframe>
+              </div>
+              <p class="text-center"><b>Editar carnet</b></p>
+              <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="../../../assets/imgs/cargarDatos.mp4" allowfullscreen></iframe>
+              </div>
+              
+            </div>
+        </div>
+        <!-- FIN CARNET -->
     </div>
   </div>
 </div>
