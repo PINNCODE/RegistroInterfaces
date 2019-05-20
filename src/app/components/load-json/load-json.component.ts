@@ -104,7 +104,7 @@ export class LoadJsonComponent {
   }
 
   initCero(){
-    if ( this._DataJson.formCero === undefined ) {
+    if ( this._DataJson.formCero === undefined && this.data.nivelCero !== null) {
       this._DataJson.formCero = this.fb.group({
         'claveComponente': new FormControl(this.data.nivelCero.claveComponente,[
           Validators.required
@@ -181,7 +181,7 @@ export class LoadJsonComponent {
   }
 
   initUno(){
-    if (this._DataJson.formUno === undefined) {
+    if (this._DataJson.formUno === undefined && this.data.nivelUno !== null) {
       
       this._DataJson.formUno = this.fb.group({
         'descSolucion': new FormControl(this.data.nivelUno.descSolucion,[
@@ -201,7 +201,7 @@ export class LoadJsonComponent {
   }
 
   initDos(){
-    if (this._DataJson.formDos === undefined) {
+    if (this._DataJson.formDos === undefined && this.data.nivelDos !== null) {
       this._DataJson.formDos = this.fb.group({
         'ejemJuguete': this.fb.array([]),
         'ejemPromedio': this.fb.array([]),
@@ -262,7 +262,7 @@ export class LoadJsonComponent {
 
   initTres(){
 
-    if (this._DataJson.formTres === undefined) {
+    if (this._DataJson.formTres === undefined && this.data.nivelTres !== null) {
       this._DataJson.formTres = this.fb.group({
         'descCasoComplejo': this.fb.array([])
       })
@@ -285,7 +285,7 @@ export class LoadJsonComponent {
 
   initCuatro(){
 
-    if (this._DataJson.formCuatro === undefined) {
+    if (this._DataJson.formCuatro === undefined && this.data.nivelCuatro !== null) {
       this._DataJson.formCuatro = this.fb.group({
         'compPadre': this.fb.array([]),
         'compHijo': this.fb.array([]),
@@ -336,7 +336,7 @@ export class LoadJsonComponent {
   }
 
   initCinco(){
-    if ( this._DataJson.formCinco === undefined) {
+    if ( this._DataJson.formCinco === undefined && this.data.nivelCinco !== null) {
       this._DataJson.formCinco = this.fb.group({
         compPropio: this.fb.array([])
       })
@@ -366,7 +366,7 @@ export class LoadJsonComponent {
   }
 
   initSeis(){
-    if ( this._DataJson.formSeis === undefined) {
+    if ( this._DataJson.formSeis === undefined && this.data.nivelSeis !== null) {
       this._DataJson.formSeis = this.fb.group({
         compExternos: this.fb.array([])
       })
@@ -395,7 +395,7 @@ export class LoadJsonComponent {
   }
 
   initSiete(){
-    if ( this._DataJson.formSiete === undefined) {
+    if ( this._DataJson.formSiete === undefined && this.data.nivelSiete !== null) {
       this._DataJson.formSiete = this.fb.group({
         'historico': this.fb.array([])
       })
@@ -424,7 +424,7 @@ export class LoadJsonComponent {
 
   initOcho(){
 
-    if ( this._DataJson.formOcho === undefined ) {
+    if ( this._DataJson.formOcho === undefined && this.data.nivelOcho !== null) {
       this._DataJson.formOcho = this.fb.group({
         'exposicion': this.fb.array([])
       })
